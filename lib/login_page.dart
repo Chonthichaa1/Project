@@ -23,15 +23,9 @@ class _LoginPageState extends State<LoginPage> {
               _buildEmailField(),
               _buildPasswordField(),
               Expanded(
-<<<<<<< HEAD
-                  child:
-                      Container()), // ทำให้ปุ่มล็อคอินอยู่ด้านล่างสุด
-              _buildLoginButton(), // ย้ายส่วนของปุ่มล็อคอินไปไว้ที่นี่
-=======
                 child: Container(),
               ),
               _buildLoginButton(),
->>>>>>> main-Kartoon
             ],
           ),
         ),
