@@ -1,22 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Loginpage',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: LoginPage(),
-    );
-  }
-}
-
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -39,7 +22,9 @@ class _LoginPageState extends State<LoginPage> {
               _buildHeader(),
               _buildEmailField(),
               _buildPasswordField(),
-              Expanded(child: Container()), // เพิ่ม Expanded widget เพื่อทำให้ปุ่มล็อคอินอยู่ด้านล่างสุด
+              Expanded(
+                  child:
+                      Container()), // เพิ่ม Expanded widget เพื่อทำให้ปุ่มล็อคอินอยู่ด้านล่างสุด
               _buildLoginButton(), // ย้ายส่วนของปุ่มล็อคอินไปไว้ที่นี่
             ],
           ),
@@ -61,7 +46,9 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: 100), // ขยับข้อความขึ้นมาเพื่อไม่ให้มันถูกบดบังโดยรูปภาพ
+            SizedBox(
+                height:
+                    100), // ขยับข้อความขึ้นมาเพื่อไม่ให้มันถูกบดบังโดยรูปภาพ
             Text(
               "Hello, Welcome Foodie!",
               style: TextStyle(
@@ -85,52 +72,51 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-Widget _buildEmailField() {
-  return Padding(
-    padding: const EdgeInsets.only(top: 20.0),
-    child: TextField(
-      controller: _emailController,
-      decoration: InputDecoration(
-        labelText: "Email",
-        border: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.blue),
-        ),
-        filled: true, // กำหนดให้มีการเติมสีพื้นหลังภายในกรอบ
-        fillColor: Colors.blue.withOpacity(0.1), // กำหนดสีพื้นหลังภายในกรอบ
-        prefixIcon: Icon(Icons.email),
-      ),
-    ),
-  );
-}
-
-Widget _buildPasswordField() {
-  return Padding(
-    padding: const EdgeInsets.only(top: 20.0),
-    child: TextFormField(
-      controller: _passwordController,
-      obscureText: _obscureText,
-      decoration: InputDecoration(
-        labelText: "Password",
-        border: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.blue),
-        ),
-        filled: true,
-        fillColor: const Color.fromARGB(255, 169, 205, 235).withOpacity(0.1), // กำหนดสีพื้นหลังภายในกรอบ
-        prefixIcon: Icon(Icons.lock),
-        suffixIcon: IconButton(
-          icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
-          onPressed: () {
-            setState(() {
-              _obscureText = !_obscureText;
-            });
-          },
+  Widget _buildEmailField() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 20.0),
+      child: TextField(
+        controller: _emailController,
+        decoration: InputDecoration(
+          labelText: "Email",
+          border: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          filled: true, // กำหนดให้มีการเติมสีพื้นหลังภายในกรอบ
+          fillColor: Colors.blue.withOpacity(0.1), // กำหนดสีพื้นหลังภายในกรอบ
+          prefixIcon: Icon(Icons.email),
         ),
       ),
-    ),
-  );
-}
+    );
+  }
 
-
+  Widget _buildPasswordField() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 20.0),
+      child: TextFormField(
+        controller: _passwordController,
+        obscureText: _obscureText,
+        decoration: InputDecoration(
+          labelText: "Password",
+          border: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          filled: true,
+          fillColor: const Color.fromARGB(255, 169, 205, 235)
+              .withOpacity(0.1), // กำหนดสีพื้นหลังภายในกรอบ
+          prefixIcon: Icon(Icons.lock),
+          suffixIcon: IconButton(
+            icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+            onPressed: () {
+              setState(() {
+                _obscureText = !_obscureText;
+              });
+            },
+          ),
+        ),
+      ),
+    );
+  }
 
   Widget _buildLoginButton() {
     return Padding(
