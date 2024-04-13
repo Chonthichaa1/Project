@@ -24,11 +24,14 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   TextEditingController _searchController = TextEditingController();
-  String _searchQuery = '';
+  List<String> _searchHistory = [];
 
   void _search() {
     setState(() {
-      _searchQuery = _searchController.text;
+      String query = _searchController.text;
+      if (query.isNotEmpty && !_searchHistory.contains(query)) {
+        _searchHistory.add(query);
+      }
     });
   }
 
@@ -37,6 +40,12 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(''),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Column(
         children: <Widget>[
@@ -49,19 +58,26 @@ class _SearchScreenState extends State<SearchScreen> {
                 hintText: 'Search',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(28.0),
                 ),
               ),
               onSubmitted: (_) => _search(),
             ),
           ),
           Expanded(
-            child: Center(
-              child: Text(
-                _searchQuery.isNotEmpty ? 'Search Results for: $_searchQuery' : '',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18.0),
-              ),
+            child: ListView.builder(
+              itemCount: _searchHistory.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(_searchHistory[index]),
+                  onTap: () {
+                    setState(() {
+                      _searchController.text = _searchHistory[index];
+                      _search();
+                    });
+                  },
+                );
+              },
             ),
           ),
         ],

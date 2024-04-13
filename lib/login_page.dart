@@ -23,9 +23,15 @@ class _LoginPageState extends State<LoginPage> {
               _buildEmailField(),
               _buildPasswordField(),
               Expanded(
+<<<<<<< HEAD
                   child:
                       Container()), // ทำให้ปุ่มล็อคอินอยู่ด้านล่างสุด
               _buildLoginButton(), // ย้ายส่วนของปุ่มล็อคอินไปไว้ที่นี่
+=======
+                child: Container(),
+              ),
+              _buildLoginButton(),
+>>>>>>> main-Kartoon
             ],
           ),
         ),
@@ -35,6 +41,8 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildHeader() {
     return Container(
+      width: double.infinity,
+      height: 200.0,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/login.jpg'),
@@ -46,20 +54,36 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: 100),
-            Text(
-              "Hello, Welcome Foodie!",
-              style: TextStyle(
-                fontSize: 34.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+            Align(
+              alignment: Alignment.center,
+              child: Text(
+                "Hello,",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 34.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Text(
+                "Welcome Foodie!",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 34.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
             ),
             SizedBox(height: 10),
             Text(
               "Please enter your email and password details to access your account",
+              textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 20.0,
+                fontSize: 16.0, // fix photo
                 fontWeight: FontWeight.normal,
                 color: Colors.white,
               ),
@@ -76,12 +100,14 @@ class _LoginPageState extends State<LoginPage> {
       child: TextField(
         controller: _emailController,
         decoration: InputDecoration(
-          labelText: "Email",
+          labelText: "Email Address",
+          hintText: "Email Address",
           border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28.0), // กำหนดให้โค้งมน
             borderSide: BorderSide(color: Colors.blue),
           ),
           filled: true,
-          fillColor: Colors.blue.withOpacity(0.1),
+          fillColor: Color.fromARGB(255, 146, 194, 233).withOpacity(0.1),
           prefixIcon: Icon(Icons.email),
         ),
       ),
@@ -96,11 +122,13 @@ class _LoginPageState extends State<LoginPage> {
         obscureText: _obscureText,
         decoration: InputDecoration(
           labelText: "Password",
+          hintText: "Password",
           border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28.0), // กำหนดให้โค้งมน
             borderSide: BorderSide(color: Colors.blue),
           ),
           filled: true,
-          fillColor: const Color.fromARGB(255, 169, 205, 235).withOpacity(0.1),
+          fillColor: Color.fromARGB(255, 146, 194, 233).withOpacity(0.1),
           prefixIcon: Icon(Icons.lock),
           suffixIcon: IconButton(
             icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
@@ -121,14 +149,20 @@ class _LoginPageState extends State<LoginPage> {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.circular(10.0),
+          color: const Color.fromARGB(255, 4, 23, 39),
+          borderRadius: BorderRadius.circular(28.0),
         ),
         child: TextButton(
           onPressed: () {},
+          style: TextButton.styleFrom(
+            padding: EdgeInsets.symmetric(vertical: 28.0),
+          ),
           child: Text(
             "Login",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18.0,
+            ),
           ),
         ),
       ),
