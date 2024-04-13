@@ -46,9 +46,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(
-                height:
-                    100), // ขยับข้อความขึ้นมาเพื่อไม่ให้มันถูกบดบังโดยรูปภาพ
+            SizedBox(height: 100),
             Text(
               "Hello, Welcome Foodie!",
               style: TextStyle(
@@ -63,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.normal,
-                color: Colors.white, // ตั้งค่าสีข้อความ
+                color: Colors.white,
               ),
             ),
           ],
@@ -82,8 +80,8 @@ class _LoginPageState extends State<LoginPage> {
           border: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.blue),
           ),
-          filled: true, // กำหนดให้มีการเติมสีพื้นหลังภายในกรอบ
-          fillColor: Colors.blue.withOpacity(0.1), // กำหนดสีพื้นหลังภายในกรอบ
+          filled: true,
+          fillColor: Colors.blue.withOpacity(0.1),
           prefixIcon: Icon(Icons.email),
         ),
       ),
@@ -102,8 +100,7 @@ class _LoginPageState extends State<LoginPage> {
             borderSide: BorderSide(color: Colors.blue),
           ),
           filled: true,
-          fillColor: const Color.fromARGB(255, 169, 205, 235)
-              .withOpacity(0.1), // กำหนดสีพื้นหลังภายในกรอบ
+          fillColor: const Color.fromARGB(255, 169, 205, 235).withOpacity(0.1),
           prefixIcon: Icon(Icons.lock),
           suffixIcon: IconButton(
             icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
