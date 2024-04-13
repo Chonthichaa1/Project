@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: 100), // ขยับข้อความขึ้นมาเพื่อไม่ให้มันถูกบดบังโดยรูปภาพ
+            SizedBox(height: 100),
             Text(
               "Hello, Welcome Foodie!",
               style: TextStyle(
@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.normal,
-                color: Colors.white, // ตั้งค่าสีข้อความ
+                color: Colors.white,
               ),
             ),
           ],
@@ -124,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // สร้างฟังก์ชันสร้างช่องใส่ confirm password
+  
   Widget _buildConfirmPasswordField() {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
@@ -148,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // แก้ชื่อฟังก์ชันและปุ่มเป็นสิ่งที่เหมาะสมสำหรับหน้า Sign Up
+  
   Widget _buildSignUpButton() {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),

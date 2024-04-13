@@ -85,42 +85,52 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _buildEmailField() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20.0),
-      child: TextField(
-        controller: _emailController,
-        decoration: InputDecoration(
-          labelText: "Email",
-          border: OutlineInputBorder(),
-          prefixIcon: Icon(Icons.email),
+Widget _buildEmailField() {
+  return Padding(
+    padding: const EdgeInsets.only(top: 20.0),
+    child: TextField(
+      controller: _emailController,
+      decoration: InputDecoration(
+        labelText: "Email",
+        border: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.blue),
         ),
+        filled: true, // กำหนดให้มีการเติมสีพื้นหลังภายในกรอบ
+        fillColor: Colors.blue.withOpacity(0.1), // กำหนดสีพื้นหลังภายในกรอบ
+        prefixIcon: Icon(Icons.email),
       ),
-    );
-  }
+    ),
+  );
+}
 
-  Widget _buildPasswordField() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20.0),
-      child: TextFormField(
-        controller: _passwordController,
-        obscureText: _obscureText,
-        decoration: InputDecoration(
-          labelText: "Password",
-          border: OutlineInputBorder(),
-          prefixIcon: Icon(Icons.lock),
-          suffixIcon: IconButton(
-            icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
-            onPressed: () {
-              setState(() {
-                _obscureText = !_obscureText;
-              });
-            },
-          ),
+Widget _buildPasswordField() {
+  return Padding(
+    padding: const EdgeInsets.only(top: 20.0),
+    child: TextFormField(
+      controller: _passwordController,
+      obscureText: _obscureText,
+      decoration: InputDecoration(
+        labelText: "Password",
+        border: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.blue),
+        ),
+        filled: true,
+        fillColor: const Color.fromARGB(255, 169, 205, 235).withOpacity(0.1), // กำหนดสีพื้นหลังภายในกรอบ
+        prefixIcon: Icon(Icons.lock),
+        suffixIcon: IconButton(
+          icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+          onPressed: () {
+            setState(() {
+              _obscureText = !_obscureText;
+            });
+          },
         ),
       ),
-    );
-  }
+    ),
+  );
+}
+
+
 
   Widget _buildLoginButton() {
     return Padding(
