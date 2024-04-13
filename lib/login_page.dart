@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
               _buildPasswordField(),
               Expanded(
                   child:
-                      Container()), // เพิ่ม Expanded widget เพื่อทำให้ปุ่มล็อคอินอยู่ด้านล่างสุด
+                      Container()), // ทำให้ปุ่มล็อคอินอยู่ด้านล่างสุด
               _buildLoginButton(), // ย้ายส่วนของปุ่มล็อคอินไปไว้ที่นี่
             ],
           ),
