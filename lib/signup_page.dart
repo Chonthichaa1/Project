@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -108,7 +107,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  
   Widget _buildConfirmPasswordField() {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
@@ -132,7 +130,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  
   Widget _buildSignUpButton() {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
@@ -153,24 +150,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
-  Widget _buildSignUpButton() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20.0),
-      child: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        child: TextButton(
-          onPressed: () {},
-          child: Text(
-            "Sign Up", 
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-      ),
-    );
-  }
-
