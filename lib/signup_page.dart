@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
+class SignupPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignupPageState createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignupPageState extends State<SignupPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _confirmPasswordController = TextEditingController(); // เพิ่ม TextEditingController สำหรับ confirm password
+  final _confirmPasswordController = TextEditingController();
   bool _obscureText = true;
+  bool _obscureConfirmText = true; 
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +24,11 @@ class _LoginPageState extends State<LoginPage> {
               _buildHeader(),
               _buildEmailField(),
               _buildPasswordField(),
-              _buildConfirmPasswordField(), // เพิ่มฟังก์ชันสร้างช่องใส่ confirm password
-              Expanded(child: Container()), 
-              _buildSignUpButton(), // เปลี่ยนชื่อฟังก์ชันเป็น _buildSignUpButton
+              _buildConfirmPasswordField(), 
+              Expanded(
+                child: Container(),
+              ),
+              _buildLoginButton(),
             ],
           ),
         ),
@@ -35,6 +38,8 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildHeader() {
     return Container(
+      width: double.infinity,
+      height: 200.0,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/login.jpg'),
@@ -46,20 +51,36 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: 100),
-            Text(
-              "Hello, Welcome Foodie!",
-              style: TextStyle(
-                fontSize: 34.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+            Align(
+              alignment: Alignment.center,
+              child: Text(
+                "Hello,",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 34.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Text(
+                "Welcome Foodie!",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 34.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
             ),
             SizedBox(height: 10),
             Text(
-              "Please create your email and password details to access your account",
+              "Please enter your email and password details to access your account",
+              textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 20.0,
+                fontSize: 16.0,
                 fontWeight: FontWeight.normal,
                 color: Colors.white,
               ),
@@ -76,8 +97,14 @@ class _LoginPageState extends State<LoginPage> {
       child: TextField(
         controller: _emailController,
         decoration: InputDecoration(
-          labelText: "Email",
-          border: OutlineInputBorder(),
+          labelText: "Email Address",
+          hintText: "Email Address",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28.0),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          filled: true,
+          fillColor: Color.fromARGB(255, 146, 194, 233).withOpacity(0.1),
           prefixIcon: Icon(Icons.email),
         ),
       ),
@@ -92,7 +119,13 @@ class _LoginPageState extends State<LoginPage> {
         obscureText: _obscureText,
         decoration: InputDecoration(
           labelText: "Password",
-          border: OutlineInputBorder(),
+          hintText: "Password",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28.0),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          filled: true,
+          fillColor: Color.fromARGB(255, 146, 194, 233).withOpacity(0.1),
           prefixIcon: Icon(Icons.lock),
           suffixIcon: IconButton(
             icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
@@ -112,16 +145,22 @@ class _LoginPageState extends State<LoginPage> {
       padding: const EdgeInsets.only(top: 20.0),
       child: TextFormField(
         controller: _confirmPasswordController,
-        obscureText: _obscureText,
+        obscureText: _obscureConfirmText,
         decoration: InputDecoration(
           labelText: "Confirm Password",
-          border: OutlineInputBorder(),
+          hintText: "Confirm Password",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28.0),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          filled: true,
+          fillColor: Color.fromARGB(255, 146, 194, 233).withOpacity(0.1),
           prefixIcon: Icon(Icons.lock),
           suffixIcon: IconButton(
-            icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+            icon: Icon(_obscureConfirmText ? Icons.visibility : Icons.visibility_off),
             onPressed: () {
               setState(() {
-                _obscureText = !_obscureText;
+                _obscureConfirmText = !_obscureConfirmText;
               });
             },
           ),
@@ -130,20 +169,32 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _buildSignUpButton() {
+  Widget _buildLoginButton() {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.circular(10.0),
+          color: const Color.fromARGB(255, 4, 23, 39),
+          borderRadius: BorderRadius.circular(28.0),
         ),
         child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            if (_passwordController.text == _confirmPasswordController.text) {
+              // Passwords match, proceed with login
+            } else {
+              // Passwords don't match, show error message or handle accordingly
+            }
+          },
+          style: TextButton.styleFrom(
+            padding: EdgeInsets.symmetric(vertical: 28.0),
+          ),
           child: Text(
             "Sign Up",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18.0,
+            ),
           ),
         ),
       ),
