@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'login_page.dart';
+import 'restaurantabout_.dart';
 void main() {
   runApp(MyApp());
 }
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget  {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(), // กำหนดหน้าหลัก
+      home: TabBarDemo(), // กำหนดหน้าหลัก
     );
   }
 }
