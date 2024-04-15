@@ -88,54 +88,83 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _buildEmailField() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20.0),
+Widget _buildEmailField() {
+  return Padding(
+    padding: const EdgeInsets.only(top: 20.0),
+    child: Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5), 
+            spreadRadius: 1,
+            blurRadius: 1,
+          ),
+        ],
+      ),
       child: TextField(
         controller: _emailController,
         decoration: InputDecoration(
           labelText: "Email Address",
           hintText: "Email Address",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28.0), // กำหนดให้โค้งมน
-            borderSide: BorderSide(color: Colors.blue),
-          ),
           filled: true,
-          fillColor: Color.fromARGB(255, 146, 194, 233).withOpacity(0.1),
+          fillColor: Color.fromARGB(255, 217, 238, 255),
+          // Color.fromARGB(255, 194, 228, 255),
           prefixIcon: Icon(Icons.email),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(24.0),
+            borderSide: BorderSide.none,
+          ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 
-  Widget _buildPasswordField() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20.0),
+
+Widget _buildPasswordField() {
+  return Padding(
+    padding: const EdgeInsets.only(top: 20.0),
+    child: Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 1,
+          ),
+        ],
+      ),
       child: TextFormField(
         controller: _passwordController,
         obscureText: _obscureText,
         decoration: InputDecoration(
           labelText: "Password",
           hintText: "Password",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28.0), // กำหนดให้โค้งมน
-            borderSide: BorderSide(color: Colors.blue),
-          ),
           filled: true,
-          fillColor: Color.fromARGB(255, 146, 194, 233).withOpacity(0.1),
+          fillColor: Color.fromARGB(255, 217, 238, 255),
           prefixIcon: Icon(Icons.lock),
           suffixIcon: IconButton(
-            icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+            icon: // icon eye
+                Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
             onPressed: () {
               setState(() {
                 _obscureText = !_obscureText;
               });
             },
           ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(24.0),
+            borderSide: BorderSide.none,
+          ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
+
+
 
   Widget _buildLoginButton() {
     return Padding(
@@ -145,11 +174,18 @@ class _LoginPageState extends State<LoginPage> {
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 4, 23, 39),
           borderRadius: BorderRadius.circular(28.0),
+          boxShadow: [
+            BoxShadow(
+              color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 5,
+            ),
+          ],
         ),
         child: TextButton(
           onPressed: () {},
           style: TextButton.styleFrom(
-            padding: EdgeInsets.symmetric(vertical: 28.0),
+            padding: EdgeInsets.symmetric(vertical: 24.0),
           ),
           child: Text(
             "Login",
