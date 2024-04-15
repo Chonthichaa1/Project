@@ -54,27 +54,24 @@ class _BottomNavigationBarExampleState
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon:
-                Icon(Icons.home, color: Colors.black), 
+            icon: Icon(Icons.home, color: Colors.black),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search,
-                color: Colors.black), 
-            label: '', 
+            icon: Icon(Icons.search, color: Colors.black),
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add_circle, color: Colors.blue, size: 40),
-            label: '', 
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon:
-                Icon(Icons.map, color: Colors.black), 
-            label: '', 
+            icon: Icon(Icons.map, color: Colors.black),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle,
-                color: Colors.black), 
-            label: '', 
+            icon: Icon(Icons.account_circle, color: Colors.black),
+            label: '',
           ),
         ],
         currentIndex: _selectedIndex,
