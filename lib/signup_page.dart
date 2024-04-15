@@ -10,7 +10,7 @@ class _SignupPageState extends State<SignupPage> {
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
   bool _obscureText = true;
-  bool _obscureConfirmText = true; 
+  bool _obscureConfirmText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class _SignupPageState extends State<SignupPage> {
               _buildHeader(),
               _buildEmailField(),
               _buildPasswordField(),
-              _buildConfirmPasswordField(), 
+              _buildConfirmPasswordField(),
               Expanded(
                 child: Container(),
               ),
@@ -94,18 +94,29 @@ class _SignupPageState extends State<SignupPage> {
   Widget _buildEmailField() {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
-      child: TextField(
-        controller: _emailController,
-        decoration: InputDecoration(
-          labelText: "Email Address",
-          hintText: "Email Address",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28.0),
-            borderSide: BorderSide(color: Colors.blue),
-          ),
-          filled: true,
-          fillColor: Color.fromARGB(255, 146, 194, 233).withOpacity(0.1),
-          prefixIcon: Icon(Icons.email),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(24.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 1,
+            ),
+          ],
+        ),
+        child: TextField(
+          controller: _emailController,
+          decoration: InputDecoration(
+              labelText: "Email Address",
+              hintText: "Email Address",
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(24.0),
+                borderSide: BorderSide.none,
+              ),
+              filled: true,
+              fillColor: Color.fromARGB(255, 217, 238, 255),
+              prefixIcon: Icon(Icons.email)),
         ),
       ),
     );
@@ -114,26 +125,39 @@ class _SignupPageState extends State<SignupPage> {
   Widget _buildPasswordField() {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
-      child: TextFormField(
-        controller: _passwordController,
-        obscureText: _obscureText,
-        decoration: InputDecoration(
-          labelText: "Password",
-          hintText: "Password",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28.0),
-            borderSide: BorderSide(color: Colors.blue),
-          ),
-          filled: true,
-          fillColor: Color.fromARGB(255, 146, 194, 233).withOpacity(0.1),
-          prefixIcon: Icon(Icons.lock),
-          suffixIcon: IconButton(
-            icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
-            onPressed: () {
-              setState(() {
-                _obscureText = !_obscureText;
-              });
-            },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(24.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 1,
+            ),
+          ],
+        ),
+        child: TextFormField(
+          controller: _passwordController,
+          obscureText: _obscureText,
+          decoration: InputDecoration(
+            labelText: "Password",
+            hintText: "Password",
+            filled: true,
+            fillColor: Color.fromARGB(255, 217, 238, 255),
+            prefixIcon: Icon(Icons.lock),
+            suffixIcon: IconButton(
+              icon: // icon eye
+                  Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+              onPressed: () {
+                setState(() {
+                  _obscureText = !_obscureText;
+                });
+              },
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(24.0),
+              borderSide: BorderSide.none,
+            ),
           ),
         ),
       ),
@@ -143,26 +167,40 @@ class _SignupPageState extends State<SignupPage> {
   Widget _buildConfirmPasswordField() {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
-      child: TextFormField(
-        controller: _confirmPasswordController,
-        obscureText: _obscureConfirmText,
-        decoration: InputDecoration(
-          labelText: "Confirm Password",
-          hintText: "Confirm Password",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28.0),
-            borderSide: BorderSide(color: Colors.blue),
-          ),
-          filled: true,
-          fillColor: Color.fromARGB(255, 146, 194, 233).withOpacity(0.1),
-          prefixIcon: Icon(Icons.lock),
-          suffixIcon: IconButton(
-            icon: Icon(_obscureConfirmText ? Icons.visibility : Icons.visibility_off),
-            onPressed: () {
-              setState(() {
-                _obscureConfirmText = !_obscureConfirmText;
-              });
-            },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(28.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 1,
+            ),
+          ],
+        ),
+        child: TextFormField(
+          controller: _confirmPasswordController,
+          obscureText: _obscureConfirmText,
+          decoration: InputDecoration(
+            labelText: "Confirm Password",
+            hintText: "Confirm Password",
+            filled: true,
+            fillColor: Color.fromARGB(255, 217, 238, 255),
+            prefixIcon: Icon(Icons.lock),
+            suffixIcon: IconButton(
+              icon: Icon(_obscureConfirmText
+                  ? Icons.visibility
+                  : Icons.visibility_off),
+              onPressed: () {
+                setState(() {
+                  _obscureConfirmText = !_obscureConfirmText;
+                });
+              },
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(24.0),
+              borderSide: BorderSide.none,
+            ),
           ),
         ),
       ),
@@ -176,18 +214,22 @@ class _SignupPageState extends State<SignupPage> {
         width: double.infinity,
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 4, 23, 39),
-          borderRadius: BorderRadius.circular(28.0),
+          borderRadius: BorderRadius.circular(24.0),
+          boxShadow: [
+            BoxShadow(
+              color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 5,
+            ),
+          ],
         ),
         child: TextButton(
           onPressed: () {
             if (_passwordController.text == _confirmPasswordController.text) {
-              // Passwords match, proceed with login
-            } else {
-              // Passwords don't match, show error message or handle accordingly
-            }
+            } else {}
           },
           style: TextButton.styleFrom(
-            padding: EdgeInsets.symmetric(vertical: 28.0),
+            padding: EdgeInsets.symmetric(vertical: 24.0),
           ),
           child: Text(
             "Sign Up",
