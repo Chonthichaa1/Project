@@ -1,0 +1,245 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const TabBarDemo());
+}
+
+class TabBarDemo extends StatelessWidget {
+  const TabBarDemo({Key? key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: _TabBarDemoState(),
+    );
+  }
+}
+
+class _TabBarDemoState extends StatefulWidget {
+  const _TabBarDemoState({Key? key});
+
+  @override
+  State<_TabBarDemoState> createState() => _TabBarDemoStateState();
+}
+
+class _TabBarDemoStateState extends State<_TabBarDemoState>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+    _tabController.addListener(_handleTabSelection);
+  }
+
+  void _handleTabSelection() {
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          leading: Icon(Icons.arrow_back_ios),
+          actions: [
+            Icon(Icons.ios_share),
+            Icon(Icons.more_horiz),
+          ],
+          bottom: TabBar(
+            indicatorColor: Colors.blue,
+            unselectedLabelColor: Colors.grey,
+            controller: _tabController,
+            tabs: [
+              Tab(
+                child: Text(
+                  'About',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color:
+                        _tabController.index == 0 ? Colors.blue : Colors.grey,
+                  ),
+                ),
+              ),
+              Tab(
+                child: Text(
+                  'Review',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color:
+                        _tabController.index == 1 ? Colors.blue : Colors.grey,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          title: const Text('Restaurant_About'),
+        ),
+        body: TabBarView(
+          controller: _tabController,
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 8),
+                  Center(
+                    child: Container(
+                      width: 400, // กำหนดความกว้างของ Container
+                      height: 150, // กำหนดความสูงของ Container
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Color.fromARGB(255, 139, 139, 139),
+                          width: 0.5,
+                        ), // กำหนดสีและขนาดของเส้นกรอบ
+                        borderRadius: BorderRadius.circular(15),
+                        // กำหนดรูปร่างของ Container
+                        image: DecorationImage(
+                          image: AssetImage(
+                              'assets/login.jpg'), // รูปภาพที่ต้องการใส่ใน Container
+                          fit: BoxFit.cover, // ปรับขนาดรูปภาพให้เต็ม Container
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 11),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10.0, horizontal: 10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Container(
+                            width: 400, // กำหนดความกว้างของ Container
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment
+                                      .start, // จัดวางข้อความไปที่ด้านบน
+                                  children: [
+                                    Icon(
+                                      Icons.location_on,
+                                      size: 60,
+                                      color: Colors.blue,
+                                    ), // ไอคอน location_on
+                                    SizedBox(width: 8),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'ถนน พุทธมณฑลสาย 4 ตำบล ศาลายา อำเภอ พุทธมณฑล จังหวัด นครปฐม 73170',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.only(top: 4),
+                                            // กำหนดระยะห่างด้านบนของเส้นกรอบ
+                                            decoration: BoxDecoration(
+                                              border: Border(
+                                                bottom: BorderSide(
+                                                  width: 0.5,
+                                                  color: Colors.grey,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Text(
+                                            'Located in: Mahidol University Salaya',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Center(
+                          child: Container(
+                            width: 400, // กำหนดความกว้างของ Container
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment
+                                      .start, // จัดวางข้อความไปที่ด้านบน
+                                  children: [
+                                    Icon(
+                                      Icons
+                                          .schedule, // เปลี่ยนไอคอนเป็น schedule
+                                      size: 60,
+                                      color: Colors.blue,
+                                    ), // ไอคอน schedule
+                                    SizedBox(width: 8),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Open | Closes 20:00',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.only(top: 4),
+                                            // กำหนดระยะห่างด้านบนของเส้นกรอบ
+                                            decoration: BoxDecoration(
+                                              border: Border(
+                                                bottom: BorderSide(
+                                                  width: 0.5,
+                                                  color: Colors.grey,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Text(
+                                            'Updated by others 2 weeks ago',
+                                            style: TextStyle(
+                                              fontSize: 16, color: Colors.grey
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              title: Text('Review'),
+              subtitle: Text('Reviews of the restaurant'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+}
