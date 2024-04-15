@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'login_page.dart';
-import 'signup_page.dart';
-import 'setting_page.dart';
+import 'login_page.dart'; // not complete 
+import 'signup_page.dart'; // not complete
+import 'setting_page.dart'; // not complete
 import 'restaurantabout_.dart';
-import 'notification_page.dart';
+import 'notification_page.dart'; // not complete
 
 void main() {
   runApp(MyApp());
