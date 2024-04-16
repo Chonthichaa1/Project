@@ -4,6 +4,7 @@ import 'signup_page.dart'; // not complete
 import 'setting_page.dart'; // not complete
 import 'restaurantabout_.dart';
 import 'notification_page.dart';
+import 'home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget  {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: NotificationPage(),
+      home: MyHomePage(),
     );
   }
 }
