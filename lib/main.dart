@@ -4,7 +4,7 @@ import 'signup_page.dart'; // not complete
 import 'setting_page.dart'; // not complete
 import 'restaurantabout_.dart';
 import 'notification_page.dart';
-import 'home_page.dart';
+import 'home_page.dart'; // not complete
 
 void main() {
   runApp(MyApp());

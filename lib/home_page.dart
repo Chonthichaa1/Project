@@ -41,94 +41,147 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.0),
-                  border: Border.all(color: Color.fromARGB(255, 233, 233, 233)),
-                  color: searchBoxColor.withOpacity(0.1),
-                ),
-                child: Row(
-                  children: [
-                    SizedBox(width: 10),
-                    Icon(Icons.search),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: TextField(
-                        controller: searchController,
-                        decoration: InputDecoration(
-                          hintText: 'Search',
-                          border: InputBorder.none,
-                          suffixIcon: IconButton(
-                            icon: Icon(Icons.clear),
-                            onPressed: () {
-                              searchController.clear();
-                            },
-                          ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30.0),
+                border: Border.all(color: Color.fromARGB(255, 233, 233, 233)),
+                color: searchBoxColor.withOpacity(0.1),
+              ),
+              child: Row(
+                children: [
+                  SizedBox(width: 10),
+                  Icon(Icons.search),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: TextField(
+                      controller: searchController,
+                      decoration: InputDecoration(
+                        hintText: 'Search',
+                        border: InputBorder.none,
+                        suffixIcon: IconButton(
+                          icon: Icon(Icons.clear),
+                          onPressed: () {
+                            searchController.clear();
+                          },
                         ),
                       ),
                     ),
-                    SizedBox(width: 10),
-                  ],
-                ),
+                  ),
+                  SizedBox(width: 10),
+                ],
               ),
-              SizedBox(height: 6),
-              ListTile(
-                title: Text(
-                  'Near me',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                height: 140,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.0),
-                  border: Border.all(color: Color.fromARGB(255, 164, 164, 164)),
-                ),
-                // ที่นี่คือส่วนของ Map
-              ),
-              SizedBox(height: 12),
-              ListTile(
-                title: Text(
-                  'Popular Now',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Container(
-                width: 180,
-                height: 280,
-                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Color.fromARGB(255, 164, 164, 164)),
-                                ),
-              ),
-              Container(
+            ),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ListTile(
                       title: Text(
-                        'ขนมสุดฮิต Disneyland มีขายแล้ว ที่นครปฐม!',
+                        'Near me',
                         style: TextStyle(
                             fontSize: 24, fontWeight: FontWeight.bold),
                       ),
-                      leading: CircleAvatar(
-                        backgroundImage: AssetImage('assets/jennie.jpg'),
-                        radius: 14,
-                        backgroundColor: Colors.transparent,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      height: 140,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        border: Border.all(
+                            color: Color.fromARGB(255, 164, 164, 164)),
                       ),
+                      // Map section goes here
+                    ),
+                    SizedBox(height: 12),
+                    ListTile(
+                      title: Text(
+                        'Popular Now',
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 180,
+                                height: 280,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color:
+                                          Color.fromARGB(255, 164, 164, 164)),
+                                ),
+                                // Popular Now - Column 1
+                              ),
+                              ListTile(
+                                title: Text(
+                                  'ขนมสุดฮิต Disneyland มีขายแล้ว ที่นครปฐม!',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                leading: CircleAvatar(
+                                  backgroundImage:
+                                      AssetImage('assets/jennie.jpg'),
+                                  radius: 14,
+                                  backgroundColor: Colors.transparent,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(width: 8),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 180,
+                                height: 280,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color:
+                                          Color.fromARGB(255, 164, 164, 164)),
+                                ),
+                                // Popular Now - Column 2
+                              ),
+                              ListTile(
+                                title: Text(
+                                  '3 street food ของงานเทศกาล sanrio ที่ต้องลอง',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                leading: CircleAvatar(
+                                  backgroundImage:
+                                      AssetImage('assets/yeri.jpg'),
+                                  radius: 14,
+                                  backgroundColor: Colors.transparent,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
