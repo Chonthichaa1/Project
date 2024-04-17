@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const TabBarDemo());
+  runApp(const TabBarinfo());
 }
 
-class TabBarDemo extends StatelessWidget {
-  const TabBarDemo({Key? key});
+class TabBarinfo extends StatelessWidget {
+  const TabBarinfo({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: _TabBarDemoState(),
+      home: _TabBarinfoState(),
     );
   }
 }
 
-class _TabBarDemoState extends StatefulWidget {
-  const _TabBarDemoState({Key? key});
+class _TabBarinfoState extends StatefulWidget {
+  const _TabBarinfoState({Key? key});
 
   @override
-  State<_TabBarDemoState> createState() => _TabBarDemoStateState();
+  State<_TabBarinfoState> createState() => _TabBarinfoStateState();
 }
 
-class _TabBarDemoStateState extends State<_TabBarDemoState>
+class _TabBarinfoStateState extends State<_TabBarinfoState>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
