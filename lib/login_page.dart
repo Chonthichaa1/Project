@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
 
 class LoginPage extends StatefulWidget {
   @override
@@ -182,9 +184,10 @@ Widget _buildPasswordField() {
             ),
           ],
         ),
-        child: TextButton(
-          onPressed: () {},
+          child: ElevatedButton(
+          onPressed: () => context.go('/profile'),
           style: TextButton.styleFrom(
+            backgroundColor: Color(0xFF092F51),
             padding: EdgeInsets.symmetric(vertical: 24.0),
           ),
           child: Text(
