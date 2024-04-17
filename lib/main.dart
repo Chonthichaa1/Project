@@ -9,8 +9,8 @@ import 'setting_page.dart'; // not complete
 import 'restaurantabout_.dart';
 import 'search_page.dart';
 import 'notification_page.dart';
-import 'post_page.dart';
-import 'viewpost_page.dart';
+import "post_page.dart";
+import "viewpost_page.dart";
 
 
 void main() {
