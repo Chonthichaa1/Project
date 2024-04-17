@@ -117,26 +117,50 @@ class MyHomePage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                width: 180,
-                                height: 280,
+                                width: 260,
+                                height: 340,
                                 decoration: BoxDecoration(
                                   border: Border.all(
-                                      color: Color.fromARGB(
-                                          255, 164, 164, 164)),
+                                    color: Color.fromARGB(255, 164, 164, 164),
+                                  ),
                                 ),
                                 // Popular Now - Column 1
                               ),
                               ListTile(
-                                title: Text(
-                                  'ขนมสุดฮิต Disneyland มีขายแล้ว ที่นครปฐม!',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
+                                title: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        'jennierubyjane',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(width: 8),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.favorite,
+                                          color: Colors.red,
+                                        ),
+                                        SizedBox(width: 4),
+                                        Text(
+                                          '2.4M',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                                 leading: CircleAvatar(
                                   backgroundImage:
                                       AssetImage('assets/jennie.jpg'),
-                                  radius: 14,
+                                  radius: 12,
                                   backgroundColor: Colors.transparent,
                                 ),
                               ),
@@ -149,26 +173,50 @@ class MyHomePage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                width: 180,
-                                height: 280,
+                                width: 260,
+                                height: 340,
                                 decoration: BoxDecoration(
                                   border: Border.all(
-                                      color: Color.fromARGB(
-                                          255, 164, 164, 164)),
+                                    color: Color.fromARGB(255, 164, 164, 164),
+                                  ),
                                 ),
                                 // Popular Now - Column 2
                               ),
                               ListTile(
-                                title: Text(
-                                  '3 street food ของงานเทศกาล sanrio ที่ต้องลอง',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
+                                title: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        'yerimiese',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(width: 8),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.favorite,
+                                          color: Colors.red,
+                                        ),
+                                        SizedBox(width: 4),
+                                        Text(
+                                          '1.2M',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                                 leading: CircleAvatar(
                                   backgroundImage:
                                       AssetImage('assets/yeri.jpg'),
-                                  radius: 14,
+                                  radius: 12,
                                   backgroundColor: Colors.transparent,
                                 ),
                               ),
