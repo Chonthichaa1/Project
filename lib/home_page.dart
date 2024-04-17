@@ -104,9 +104,9 @@ class MyHomePage extends StatelessWidget {
                 width: 180,
                 height: 280,
                 decoration: BoxDecoration(
-                  border: Border.all(color: Color.fromARGB(255, 164, 164, 164)),
-                ),
-                // ที่นี่คือส่วนของ Popular Now
+                                  border: Border.all(
+                                      color: Color.fromARGB(255, 164, 164, 164)),
+                                ),
               ),
               Container(
                 child: Column(
@@ -127,7 +127,6 @@ class MyHomePage extends StatelessWidget {
                   ],
                 ),
               ),
-            ],
           ),
         ),
       ),
