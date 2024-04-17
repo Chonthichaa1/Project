@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -223,16 +224,38 @@ class _SignupPageState extends State<SignupPage> {
             ),
           ],
         ),
-        child: TextButton(
+        child: ElevatedButton(
           onPressed: () {
             if (_passwordController.text == _confirmPasswordController.text) {
-            } else {}
+              context.go('/');
+            } else {
+              // กรณีที่ password ไม่ตรงกัน ทำอะไรก็ตามที่คุณต้องการ
+              // ยกตัวอย่างเช่นแสดงข้อความแจ้งเตือน
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text('Passwords do not match'),
+                    content: Text('Please make sure your passwords match.'),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context); // ปิด dialog
+                        },
+                        child: Text('OK'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            }
           },
-          style: TextButton.styleFrom(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xFF092F51),
             padding: EdgeInsets.symmetric(vertical: 24.0),
           ),
           child: Text(
-            "Sign Up",
+            "Signup",
             style: TextStyle(
               color: Colors.white,
               fontSize: 18.0,
