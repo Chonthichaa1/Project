@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'footer_page.dart';
+import "package:go_router/go_router.dart";
 
 class ProfileApp extends StatelessWidget {
   @override
@@ -6,7 +8,7 @@ class ProfileApp extends StatelessWidget {
     return MaterialApp(
       title: 'Profile_Pages',
       theme: ThemeData(
-        primaryColor: Colors.grey, // เปลี่ยนสีของ Appbar เป็นสีเทา
+        primaryColor: Colors.grey,
         scaffoldBackgroundColor: Colors.white,
       ),
       home: ProfilePage(),
@@ -14,13 +16,32 @@ class ProfileApp extends StatelessWidget {
   }
 }
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  int _selectedIndex = 0; 
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
               '@Username',
@@ -49,7 +70,7 @@ class ProfilePage extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 75,
-                  backgroundImage: AssetImage('assets/profile_picture.jpg'),
+                  backgroundImage: AssetImage('assets/jisoo.jpg'),
                 ),
                 SizedBox(width: 20),
                 Column(
@@ -62,7 +83,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                     Text(
                       'Following',
-                      style: TextStyle(fontSize: 10),
+                      style: TextStyle(fontSize: 15),
                     ),
                   ],
                 ),
@@ -77,7 +98,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                     Text(
                       'Followers',
-                      style: TextStyle(fontSize: 10),
+                      style: TextStyle(fontSize: 15),
                     ),
                   ],
                 ),
@@ -91,10 +112,8 @@ class ProfilePage extends StatelessWidget {
                       style: TextStyle(fontSize: 20),
                     ),
                     Text(
-                      'Likes and saves',
-                      style: TextStyle(
-                        fontSize: 10,
-                      ),
+                      'Likes',
+                      style: TextStyle(fontSize: 15),
                     ),
                   ],
                 ),
@@ -128,17 +147,16 @@ class ProfilePage extends StatelessWidget {
                 Container(
                   width: 300,
                   height: 40,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.grey,
+                  child: ElevatedButton(
+                    onPressed: () => context.go('/editprofile'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        side: BorderSide(color: Colors.grey),
+                      ),
                     ),
-                  ),
-                  child: TextButton(
-                    onPressed: () {
-                      // ใส่โค้ดเมื่อกดปุ่ม Edit Profile
-                    },
                     child: Text(
                       'Edit Profile',
                       style: TextStyle(
@@ -162,33 +180,34 @@ class ProfilePage extends StatelessWidget {
                     onPressed: () {
                       // ใส่โค้ดเมื่อกดปุ่ม Share
                     },
-                    iconSize: 20, // ปรับขนาดไอคอนให้เล็กลง
+                    iconSize: 20,
                     icon: Icon(
-                      Icons.ios_share, // ใช้ไอคอน Share Rounded
+                      Icons.ios_share,
                       color: Colors.black,
                     ),
                   ),
                 ),
               ],
             ),
+            SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(width: 20), 
+                SizedBox(width: 20),
                 IconButton(
                   icon: Icon(Icons.edit_outlined),
                   onPressed: () {
                     // ใส่โค้ดเมื่อกดปุ่ม Edit
                   },
                 ),
-                SizedBox(width: 10), // กำหนดระยะห่างระหว่างไอคอน
+                SizedBox(width: 10),
                 IconButton(
                   icon: Icon(Icons.bookmark_border),
                   onPressed: () {
                     // ใส่โค้ดเมื่อกดปุ่ม Bookmark
                   },
                 ),
-                SizedBox(width: 10), // กำหนดระยะห่างระหว่างไอคอน
+                SizedBox(width: 10),
                 IconButton(
                   icon: Icon(Icons.favorite_border),
                   onPressed: () {
@@ -200,6 +219,10 @@ class ProfilePage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: FooterPage(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
       ),
     );
   }
