@@ -22,7 +22,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 4;
 
   void _onItemTapped(int index) {
     setState(() {

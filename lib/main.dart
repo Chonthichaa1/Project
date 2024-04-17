@@ -11,7 +11,7 @@ import 'search_page.dart';
 import 'notification_page.dart';
 import "post_page.dart";
 import "viewpost_page.dart";
-
+import "home_page.dart";
 
 void main() {
   runApp(MyApp());
@@ -27,9 +27,9 @@ final GoRouter _router = GoRouter(
       //TODO 2 Route Configure
       routes: <RouteBase> [
         GoRoute(
-          path: "signup",
+          path: "firstpage",
           builder: (BuildContext context, GoRouterState state) {
-            return SignupPage();
+            return MyHomePage();
           },
         ),
         GoRoute(
@@ -78,6 +78,12 @@ final GoRouter _router = GoRouter(
           path: "viewpost",
           builder: (BuildContext context, GoRouterState state) {
             return ViewPostPage();
+          },
+        ),
+        GoRoute(
+          path: "signup",
+          builder: (BuildContext context, GoRouterState state) {
+            return SignupPage();
           },
         ),
       ],  

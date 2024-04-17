@@ -20,7 +20,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
               backgroundColor: Colors.transparent,
               leading: IconButton(
                 icon: Icon(Icons.arrow_back_ios),
-                onPressed: () => context.go('/profile'),
+                onPressed: () => context.go('/firstpage'),
               ),
               centerTitle: true,
               title: Text(
@@ -85,10 +85,10 @@ class _ViewPostPageState extends State<ViewPostPage> {
                           scrollDirection: Axis.horizontal,
                           onPageChanged: _pageChanged,
                           children: [
-                            _buildImage('assets/Joy.jpg'),
+                            _buildImage('assets/jisoo.jpg'),
                             _buildImage('assets/jennie.jpg'),
-                            _buildImage('assets/Yeri.jpg'),
-                            // เพิ่มรูปภาพอื่นๆ ตามต้องการ
+                            _buildImage('assets/rose.jpg'),
+                            _buildImage('assets/lisa.jpg'),
                           ],
                         ),
                       ],
@@ -100,7 +100,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        for (int i = 0; i < 3; i++)
+                        for (int i = 0; i < 4; i++)
                           Container(
                             margin: EdgeInsets.symmetric(horizontal: 5.0),
                             width: 10.0,

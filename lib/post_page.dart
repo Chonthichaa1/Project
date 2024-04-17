@@ -22,7 +22,7 @@ class Postpage extends StatelessWidget {
             ),
             leading: IconButton(
               icon: Icon(Icons.arrow_back_ios),
-              onPressed: () => context.go('/profile'),
+              onPressed: () => context.go('/firstpage'),
             ),
             centerTitle: true,
             title: Text(
@@ -179,7 +179,7 @@ class Postpage extends StatelessWidget {
                   margin: EdgeInsets.only(bottom: 20),
                   width: 300,
                   child: ElevatedButton(
-                    onPressed: () => context.go('/profile'),
+                    onPressed: () => context.go('/firstpage'),
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0),

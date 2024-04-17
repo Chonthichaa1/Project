@@ -185,7 +185,7 @@ Widget _buildPasswordField() {
           ],
         ),
           child: ElevatedButton(
-          onPressed: () => context.go('/profile'),
+          onPressed: () => context.go('/firstpage'),
           style: TextButton.styleFrom(
             backgroundColor: Color(0xFF092F51),
             padding: EdgeInsets.symmetric(vertical: 24.0),

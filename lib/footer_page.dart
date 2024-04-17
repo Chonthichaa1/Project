@@ -44,7 +44,7 @@ class FooterPage extends StatelessWidget {
         onItemTapped(index); // ส่ง index ไปยัง callback ที่เกี่ยวข้องกับการเปลี่ยนแปลงที่ด้านบน
         switch (index) {
           case 0:
-            GoRouter.of(context).go('/profile');
+            GoRouter.of(context).go('/firstpage');
             break;
           case 1:
             GoRouter.of(context).go('/search');

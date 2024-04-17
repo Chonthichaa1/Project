@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import "package:go_router/go_router.dart";
 class SearchEngineApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -38,9 +38,7 @@ class _SearchScreenState extends State<SearchScreen> {
         title: Text(''),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () => context.go('/firstpage'),
         ),
       ),
       body: Column(
