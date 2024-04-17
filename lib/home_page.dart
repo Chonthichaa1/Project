@@ -91,17 +91,19 @@ class MyHomePage extends StatelessWidget {
                             fontSize: 24, fontWeight: FontWeight.bold),
                       ),
                     ),
-                    Container(
-                      width: double.infinity,
-                      height: 140,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.0),
-                        border: Border.all(
-                            color: Color.fromARGB(255, 164, 164, 164)),
+                    Expanded(
+                      child: Container(
+                        width: double.infinity,
+                        height: 140,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          border: Border.all(
+                              color: Color.fromARGB(255, 164, 164, 164)),
+                        ),
+                        // Map section goes here
                       ),
-                      // Map section goes here
                     ),
-                    SizedBox(height: 12),
+                    SizedBox(height: 6),
                     ListTile(
                       title: Text(
                         'Popular Now',
@@ -115,15 +117,17 @@ class MyHomePage extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                width: 180,
-                                height: 280,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color:
-                                          Color.fromARGB(255, 164, 164, 164)),
+                              Expanded(
+                                child: Container(
+                                  width: 180,
+                                  height: 280,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Color.fromARGB(
+                                            255, 164, 164, 164)),
+                                  ),
+                                  // Popular Now - Column 1
                                 ),
-                                // Popular Now - Column 1
                               ),
                               ListTile(
                                 title: Text(
@@ -147,15 +151,17 @@ class MyHomePage extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                width: 180,
-                                height: 280,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color:
-                                          Color.fromARGB(255, 164, 164, 164)),
+                              Expanded(
+                                child: Container(
+                                  width: 180,
+                                  height: 280,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Color.fromARGB(
+                                            255, 164, 164, 164)),
+                                  ),
+                                  // Popular Now - Column 2
                                 ),
-                                // Popular Now - Column 2
                               ),
                               ListTile(
                                 title: Text(

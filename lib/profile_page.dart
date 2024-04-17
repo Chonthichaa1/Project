@@ -44,7 +44,7 @@ class _ProfilePageState extends State<ProfilePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              '@Username',
+              '@่jennierubyjane',
               style: TextStyle(color: Colors.black),
             )
           ],
@@ -70,7 +70,7 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 CircleAvatar(
                   radius: 75,
-                  backgroundImage: AssetImage('assets/jisoo.jpg'),
+                  backgroundImage: AssetImage('assets/jennie.jpg'),
                 ),
                 SizedBox(width: 20),
                 Column(
@@ -78,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     SizedBox(height: 40),
                     Text(
-                      '5k',
+                      '3',
                       style: TextStyle(fontSize: 20),
                     ),
                     Text(
@@ -93,7 +93,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     SizedBox(height: 40),
                     Text(
-                      '50k',
+                      '83.7k',
                       style: TextStyle(fontSize: 20),
                     ),
                     Text(

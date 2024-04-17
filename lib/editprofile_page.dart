@@ -29,11 +29,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
                 onPressed: () => context.go('/profile'),
               ),
-              Text(
-                'Edit Profile',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20.0,
+              Expanded(
+                child: Center( 
+                  child: Text(
+                    'Edit Profile',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20.0,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -64,31 +68,39 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(), // ใช้ CustomAppBar แทน Appbar ทั่วไป
+      appBar: CustomAppBar(),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 16),
             CircleAvatar(
-              backgroundImage: AssetImage('assets/jisoo.jpg'),
+              backgroundImage: AssetImage('assets/jennie.jpg'),
               radius: 50,
             ),
             SizedBox(height: 16),
             Text(
-              'Upload Profile',
+              'Edit Photo',
               style: TextStyle(
                 color: Colors.blue,
-                fontSize: 16,
+                fontSize: 14,
               ),
             ),
             SizedBox(height: 16),
-            buildProfileItem('Name', 'John Doe'),
-            buildProfileItem('Username', 'johndoe123'),
-            buildProfileItem('Bio', 'My name is John Doe.'),
-            buildProfileItem('Pronouns', 'He/Him'),
-            buildProfileItem('Age', '25'),
-            buildProfileItem('Region', 'New York, USA'),
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  buildProfileItem('Name', 'Kim Jennie'),
+                  buildProfileItem('Username', '@jennierubyjane'),
+                  buildProfileItem('Bio', 'A description of this user.'),
+                  buildProfileItem('Pronouns', 'she/her'),
+                  buildProfileItem('Age', '27'),
+                  buildProfileItem('Region', 'Thailand'),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -107,7 +119,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         border: Border(
           top: title == 'Name'
               ? BorderSide(color: Colors.grey)
-              : BorderSide.none, // เพิ่มเงื่อนไขสำหรับการแสดงเส้นขอบด้านบน
+              : BorderSide.none,
           bottom: BorderSide(color: Colors.grey),
         ),
       ),
@@ -124,11 +136,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
           ),
           SizedBox(width: 8),
           Expanded(
-            flex: 8,
-            child: Text(
-              detail,
-              style: TextStyle(
-                fontSize: 16,
+            flex: 1,
+            child: Center(
+              child: Text(
+                detail,
+                style: TextStyle(
+                  fontSize: 16,
+                ),
               ),
             ),
           ),
