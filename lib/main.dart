@@ -9,13 +9,9 @@ import 'setting_page.dart'; // not complete
 import 'restaurantabout_.dart';
 import 'search_page.dart';
 import 'notification_page.dart';
-<<<<<<< HEAD
 import 'post_page.dart';
 import 'viewpost_page.dart';
 
-=======
-import 'home_page.dart';
->>>>>>> main
 
 void main() {
   runApp(MyApp());
@@ -93,17 +89,8 @@ final GoRouter _router = GoRouter(
 class MyApp extends StatelessWidget  {
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return MaterialApp.router(
       routerConfig: _router,
-=======
-    return MaterialApp(
-      title: 'main',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(),
->>>>>>> main
     );
   }
 }
