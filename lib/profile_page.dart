@@ -22,7 +22,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  int _selectedIndex = 0; 
+  int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -41,10 +41,11 @@ class _ProfilePageState extends State<ProfilePage> {
           },
         ),
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          
           children: [
             Text(
-              '@่jennierubyjane',
+              '@jennierubyjane',
               style: TextStyle(color: Colors.black),
             )
           ],
@@ -69,7 +70,7 @@ class _ProfilePageState extends State<ProfilePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
-                  radius: 75,
+                  radius: 50,
                   backgroundImage: AssetImage('assets/jennie.jpg'),
                 ),
                 SizedBox(width: 20),
@@ -78,7 +79,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     SizedBox(height: 40),
                     Text(
-                      '3',
+                      '    3',
                       style: TextStyle(fontSize: 20),
                     ),
                     Text(
@@ -93,7 +94,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     SizedBox(height: 40),
                     Text(
-                      '83.7k',
+                      '  83.7k',
                       style: TextStyle(fontSize: 20),
                     ),
                     Text(
@@ -107,12 +108,19 @@ class _ProfilePageState extends State<ProfilePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 40),
-                    Text(
-                      '10.4K',
-                      style: TextStyle(fontSize: 20),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Text(
+                          '       10.4K',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        SizedBox(width: 2),
+                      ],
                     ),
                     Text(
-                      'Likes',
+                      '  Likes and saves',
                       style: TextStyle(fontSize: 15),
                     ),
                   ],
@@ -120,27 +128,32 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
             SizedBox(height: 25),
-            Text(
-              'Username',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
             Row(
               children: [
-                Text(
-                  '     Write a bio to help people discover you',
-                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Jennie\n',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16, // ปรับขนาดตามต้องการ
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'Write a bio to help people discover you',
+                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                      ),
+                    ],
+                  ),
                 ),
                 IconButton(
                   icon: Icon(Icons.edit),
-                  onPressed: () {
-                    // ใส่โค้ดเมื่อกดปุ่มแก้ไข
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),
+            SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -167,7 +180,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
                 Container(
-                  width: 50,
+                  width: 40,
                   height: 40,
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -177,10 +190,9 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                   child: IconButton(
-                    onPressed: () {
-                      // ใส่โค้ดเมื่อกดปุ่ม Share
-                    },
+                    onPressed: () {},
                     iconSize: 20,
+                    // share
                     icon: Icon(
                       Icons.ios_share,
                       color: Colors.black,
@@ -193,28 +205,18 @@ class _ProfilePageState extends State<ProfilePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(width: 20),
                 IconButton(
                   icon: Icon(Icons.edit_outlined),
-                  onPressed: () {
-                    // ใส่โค้ดเมื่อกดปุ่ม Edit
-                  },
+                  onPressed: () {},
                 ),
-                SizedBox(width: 10),
                 IconButton(
                   icon: Icon(Icons.bookmark_border),
-                  onPressed: () {
-                    // ใส่โค้ดเมื่อกดปุ่ม Bookmark
-                  },
+                  onPressed: () {},
                 ),
-                SizedBox(width: 10),
                 IconButton(
                   icon: Icon(Icons.favorite_border),
-                  onPressed: () {
-                    // ใส่โค้ดเมื่อกดปุ่ม Favorite
-                  },
+                  onPressed: () {},
                 ),
-                SizedBox(width: 20),
               ],
             ),
           ],
