@@ -102,7 +102,7 @@ class _SignupPageState extends State<SignupPage> {
       padding: const EdgeInsets.only(top: 20.0),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(24.0),
+          borderRadius: BorderRadius.circular(30.0),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
@@ -133,7 +133,7 @@ class _SignupPageState extends State<SignupPage> {
       padding: const EdgeInsets.only(top: 20.0),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(24.0),
+          borderRadius: BorderRadius.circular(30.0),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
@@ -160,7 +160,7 @@ class _SignupPageState extends State<SignupPage> {
               },
             ),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(24.0),
+              borderRadius: BorderRadius.circular(30.0),
               borderSide: BorderSide.none,
             ),
           ),
@@ -174,7 +174,7 @@ class _SignupPageState extends State<SignupPage> {
       padding: const EdgeInsets.only(top: 20.0),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(28.0),
+          borderRadius: BorderRadius.circular(30.0),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
@@ -203,7 +203,7 @@ class _SignupPageState extends State<SignupPage> {
               },
             ),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(24.0),
+              borderRadius: BorderRadius.circular(30.0),
               borderSide: BorderSide.none,
             ),
           ),
@@ -219,7 +219,7 @@ class _SignupPageState extends State<SignupPage> {
         width: double.infinity,
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 4, 23, 39),
-          borderRadius: BorderRadius.circular(24.0),
+          borderRadius: BorderRadius.circular(38.0),
           boxShadow: [
             BoxShadow(
               color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
@@ -253,14 +253,14 @@ class _SignupPageState extends State<SignupPage> {
             }
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: Color(0xFF092F51),
+            backgroundColor: Color.fromARGB(255, 15, 53, 86),
             padding: EdgeInsets.symmetric(vertical: 24.0),
           ),
           child: Text(
-            "SignUp",
+            "Sign Up",
             style: TextStyle(
               color: Colors.white,
-              fontSize: 18.0,
+              fontSize: 20.0,
             ),
           ),
         ),

@@ -186,7 +186,7 @@ class _LoginPageState extends State<LoginPage> {
         child: ElevatedButton(
           onPressed: () => context.go('/firstpage'),
           style: TextButton.styleFrom(
-            backgroundColor: Color.fromARGB(255, 4, 23, 40),
+            backgroundColor: Color.fromARGB(255, 15, 53, 86),
             padding: EdgeInsets.symmetric(vertical: 24.0),
           ),
           child: Text(
