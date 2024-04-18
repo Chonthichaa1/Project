@@ -144,7 +144,6 @@ class _SignupPageState extends State<SignupPage> {
         ),
         child: TextFormField(
           controller: _passwordController,
-          obscureText: _obscureText,
           decoration: InputDecoration(
             labelText: "Password",
             hintText: "Password",
@@ -234,8 +233,6 @@ class _SignupPageState extends State<SignupPage> {
             if (_passwordController.text == _confirmPasswordController.text) {
               context.go('/');
             } else {
-              // กรณีที่ password ไม่ตรงกัน ทำอะไรก็ตามที่คุณต้องการ
-              // ยกตัวอย่างเช่นแสดงข้อความแจ้งเตือน
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
@@ -245,7 +242,7 @@ class _SignupPageState extends State<SignupPage> {
                     actions: <Widget>[
                       TextButton(
                         onPressed: () {
-                          Navigator.pop(context); // ปิด dialog
+                          Navigator.pop(context);
                         },
                         child: Text('OK'),
                       ),
@@ -260,7 +257,7 @@ class _SignupPageState extends State<SignupPage> {
             padding: EdgeInsets.symmetric(vertical: 24.0),
           ),
           child: Text(
-            "Signup",
+            "SignUp",
             style: TextStyle(
               color: Colors.white,
               fontSize: 18.0,
