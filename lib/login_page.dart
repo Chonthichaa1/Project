@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
+import 'package:login/login_bar.dart';
+import 'package:login/signup_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -22,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               _buildHeader(),
+              _loginBar(),
               _buildEmailField(),
               _buildPasswordField(),
               Expanded(
@@ -79,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
               "Please enter your email and password details to access your account",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 16.0, // fix photo
+                fontSize: 16.0,
                 fontWeight: FontWeight.normal,
                 color: Colors.white,
               ),
@@ -90,83 +92,80 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-Widget _buildEmailField() {
-  return Padding(
-    padding: const EdgeInsets.only(top: 20.0),
-    child: Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5), 
-            spreadRadius: 1,
-            blurRadius: 1,
-          ),
-        ],
-      ),
-      child: TextField(
-        controller: _emailController,
-        decoration: InputDecoration(
-          labelText: "Email Address",
-          hintText: "Email Address",
-          filled: true,
-          fillColor: Color.fromARGB(255, 217, 238, 255),
-          // Color.fromARGB(255, 194, 228, 255),
-          prefixIcon: Icon(Icons.email),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(24.0),
-            borderSide: BorderSide.none,
+  Widget _buildEmailField() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 20.0),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 1,
+            ),
+          ],
+        ),
+        child: TextField(
+          controller: _emailController,
+          decoration: InputDecoration(
+            labelText: "Email Address",
+            hintText: "Email Address",
+            filled: true,
+            fillColor: Color.fromARGB(255, 217, 238, 255),
+            prefixIcon: Icon(Icons.email),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30.0),
+              borderSide: BorderSide.none,
+            ),
           ),
         ),
       ),
-    ),
-  );
-}
+    );
+  }
 
-
-Widget _buildPasswordField() {
-  return Padding(
-    padding: const EdgeInsets.only(top: 20.0),
-    child: Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 1,
-            blurRadius: 1,
-          ),
-        ],
-      ),
-      child: TextFormField(
-        controller: _passwordController,
-        obscureText: _obscureText,
-        decoration: InputDecoration(
-          labelText: "Password",
-          hintText: "Password",
-          filled: true,
-          fillColor: Color.fromARGB(255, 217, 238, 255),
-          prefixIcon: Icon(Icons.lock),
-          suffixIcon: IconButton(
-            icon: // icon eye
-                Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
-            onPressed: () {
-              setState(() {
-                _obscureText = !_obscureText;
-              });
-            },
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(24.0),
-            borderSide: BorderSide.none,
+  Widget _buildPasswordField() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 20.0),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 1,
+            ),
+          ],
+        ),
+        child: TextFormField(
+          controller: _passwordController,
+          obscureText: _obscureText,
+          decoration: InputDecoration(
+            labelText: "Password",
+            hintText: "Password",
+            filled: true,
+            fillColor: Color.fromARGB(255, 217, 238, 255),
+            prefixIcon: Icon(Icons.lock),
+            suffixIcon: IconButton(
+              icon: _obscureText
+                  ? Icon(Icons.visibility)
+                  : Icon(Icons.visibility_off),
+              onPressed: () {
+                setState(() {
+                  _obscureText = !_obscureText;
+                });
+              },
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30.0),
+              borderSide: BorderSide.none,
+            ),
           ),
         ),
       ),
-    ),
-  );
-}
-
-
+    );
+  }
 
   Widget _buildLoginButton() {
     return Padding(
@@ -174,31 +173,52 @@ Widget _buildPasswordField() {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 4, 23, 39),
-          borderRadius: BorderRadius.circular(28.0),
+          color: Colors.grey.withOpacity(0.5),
+          borderRadius: BorderRadius.circular(38.0),
           boxShadow: [
             BoxShadow(
               color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
+              spreadRadius: 1,
+              blurRadius: 1,
             ),
           ],
         ),
-          child: ElevatedButton(
+        child: ElevatedButton(
           onPressed: () => context.go('/firstpage'),
           style: TextButton.styleFrom(
-            backgroundColor: Color(0xFF092F51),
+            backgroundColor: Color.fromARGB(255, 4, 23, 40),
             padding: EdgeInsets.symmetric(vertical: 24.0),
           ),
           child: Text(
             "Login",
             style: TextStyle(
               color: Colors.white,
-              fontSize: 18.0,
+              fontSize: 20.0,
             ),
           ),
         ),
       ),
+    );
+  }
+
+  Widget _loginBar() {
+    return loginBar(
+      onSignupPressed: handleSignupPressed,
+      onLoginPressed: handleLoginPressed,
+    );
+  }
+
+  void handleSignupPressed() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SignupPage()),
+    );
+  }
+
+  void handleLoginPressed() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LoginPage()),
     );
   }
 }

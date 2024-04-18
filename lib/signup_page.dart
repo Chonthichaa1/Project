@@ -1,5 +1,9 @@
+// ignore_for_file: dead_code
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:login/login_bar.dart';
+import 'package:login/login_page.dart';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -23,6 +27,7 @@ class _SignupPageState extends State<SignupPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               _buildHeader(),
+              _loginBar(),
               _buildEmailField(),
               _buildPasswordField(),
               _buildConfirmPasswordField(),
@@ -263,6 +268,27 @@ class _SignupPageState extends State<SignupPage> {
           ),
         ),
       ),
+    );
+  }
+
+  _loginBar() {
+    return loginBar(
+      onSignupPressed: handleSignupPressed,
+      onLoginPressed: handleLoginPressed,
+    );
+  }
+
+  void handleSignupPressed() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SignupPage()),
+    );
+  }
+
+  void handleLoginPressed() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LoginPage()),
     );
   }
 }

@@ -3,9 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:login/editprofile_page.dart';
 import 'package:login/profile_page.dart';
 
-import 'login_page.dart'; // not complete 
-import 'signup_page.dart'; // not complete
-import 'setting_page.dart'; // not complete
+import 'login_page.dart'; 
+import 'signup_page.dart';
 import 'restaurantabout_.dart';
 import 'search_page.dart';
 import 'notification_page.dart';
@@ -24,7 +23,7 @@ final GoRouter _router = GoRouter(
       builder: (BuildContext context, GoRouterState state ) {
         return LoginPage();
       },
-      //TODO 2 Route Configure
+      // Route Configure
       routes: <RouteBase> [
         GoRoute(
           path: "firstpage",
@@ -57,12 +56,6 @@ final GoRouter _router = GoRouter(
           },
         ),
         GoRoute(
-          path: "setting",
-          builder: (BuildContext context, GoRouterState state) {
-            return SettingPage();
-          },
-        ),
-        GoRoute(
           path: "restaurant",
           builder: (BuildContext context, GoRouterState state) {
             return TabBarinfo();
@@ -84,6 +77,12 @@ final GoRouter _router = GoRouter(
           path: "signup",
           builder: (BuildContext context, GoRouterState state) {
             return SignupPage();
+          },
+        ),
+        GoRoute(
+          path: "login",
+          builder: (BuildContext context, GoRouterState state) {
+            return LoginPage();
           },
         ),
       ],  

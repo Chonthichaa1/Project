@@ -131,12 +131,10 @@ class MyHomePage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Expanded(
-                                      child: Text(
-                                        'jennierubyjane',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                        ),
+                                    Text(
+                                      'jennierubyjane', // นำชื่อผู้ใช้มาใส่ใน title
+                                      style: TextStyle(
+                                        fontSize: 14,
                                       ),
                                     ),
                                     SizedBox(width: 8),
@@ -157,6 +155,13 @@ class MyHomePage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
+                                subtitle: Text(
+                                  'Stunning view! 😍', // เอาแคปชั่นมาใส่ใน subtitle
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                  ),
+                                ),
                                 leading: CircleAvatar(
                                   backgroundImage:
                                       AssetImage('assets/jennie.jpg'),
@@ -164,60 +169,61 @@ class MyHomePage extends StatelessWidget {
                                   backgroundColor: Colors.transparent,
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(width: 8),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 260,
-                                height: 340,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Color.fromARGB(255, 164, 164, 164),
-                                  ),
-                                ),
-                                // Popular Now - Column 2
-                              ),
-                              ListTile(
-                                title: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                              SizedBox(width: 8),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Expanded(
-                                      child: Text(
-                                        'yerimiese',
-                                        style: TextStyle(
-                                          fontSize: 14,
+                                    Container(
+                                      width: 260,
+                                      height: 340,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Color.fromARGB(
+                                              255, 164, 164, 164),
                                         ),
                                       ),
+                                      // Popular Now - Column 2
                                     ),
-                                    SizedBox(width: 8),
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.favorite,
-                                          color: Colors.red,
-                                        ),
-                                        SizedBox(width: 4),
-                                        Text(
-                                          '1.2M',
-                                          style: TextStyle(
-                                            fontSize: 14,
+                                    ListTile(
+                                      title: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              'yerimiese',
+                                              style: TextStyle(
+                                                fontSize: 14,
+                                              ),
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                          SizedBox(width: 8),
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.favorite,
+                                                color: Colors.red,
+                                              ),
+                                              SizedBox(width: 4),
+                                              Text(
+                                                '1.2M',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      leading: CircleAvatar(
+                                        backgroundImage:
+                                            AssetImage('assets/yeri.jpg'),
+                                        radius: 12,
+                                        backgroundColor: Colors.transparent,
+                                      ),
                                     ),
                                   ],
-                                ),
-                                leading: CircleAvatar(
-                                  backgroundImage:
-                                      AssetImage('assets/yeri.jpg'),
-                                  radius: 12,
-                                  backgroundColor: Colors.transparent,
                                 ),
                               ),
                             ],
