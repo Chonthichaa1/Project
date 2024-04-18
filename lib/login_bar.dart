@@ -11,13 +11,13 @@ class loginBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(20.0),
       child: Container(
         child: Container(
-          width: 550.0,
+          width: 600.0,
           height: 50.0,
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 116, 192, 255),
+            color: Color.fromARGB(255, 148, 206, 253),
             borderRadius: BorderRadius.circular(24.0),
           ),
           child: Row(
@@ -26,20 +26,20 @@ class loginBar extends StatelessWidget {
               TextButton(
                 onPressed: () => onSignupPressed(),
                 child: Text(
-                  'SignUp',
+                  'Login',
                   style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24.0,
+                    color: Colors.white,
+                    fontSize: 22.0,
                   ),
                 ),
               ),
               TextButton(
                 onPressed: () => onLoginPressed(),
                 child: Text(
-                  'Login',
+                  'SignUp',
                   style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24.0,
+                    color: Colors.white,
+                    fontSize: 22.0,
                   ),
                 ),
               ),

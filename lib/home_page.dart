@@ -239,9 +239,8 @@ class MyHomePage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: FooterPage(
-        selectedIndex: 0, // Set initial selected index here
+        selectedIndex: 0,
         onItemTapped: (index) {
-          // Handle item tap here
           print('Item $index tapped');
         },
       ),
