@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'footer_page.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double appBarHeight = 60.0;
+
+  const CustomAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 onPressed: () => context.go('/profile'),
               ),
               Expanded(
-                child: Center( 
+                child: Center(
                   child: Text(
                     'Edit Profile',
                     style: TextStyle(
@@ -57,19 +59,27 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
-  int _selectedIndex = 4;
+  late TextEditingController _usernameController;
+  late TextEditingController _bioController;
+  late TextEditingController _pronounsController;
+  late TextEditingController _ageController;
+  late TextEditingController _regionController;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+  @override
+  void initState() {
+    super.initState();
+    _usernameController = TextEditingController();
+    _bioController = TextEditingController();
+    _pronounsController = TextEditingController();
+    _ageController = TextEditingController();
+    _regionController = TextEditingController();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
-      body: Center(
+      appBar: const CustomAppBar(),
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -83,73 +93,158 @@ class _EditProfilePageState extends State<EditProfilePage> {
               'Edit Photo',
               style: TextStyle(
                 color: Colors.blue,
-                fontSize: 14,
+                fontSize: 15,
               ),
             ),
-            SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.only(left: 16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  buildProfileItem('Name', 'Kim Jennie'),
-                  buildProfileItem('Username', '@jennierubyjane'),
-                  buildProfileItem('Bio', 'A description of this user.'),
-                  buildProfileItem('Pronouns', 'she/her'),
-                  buildProfileItem('Age', '27'),
-                  buildProfileItem('Region', 'Thailand'),
-                ],
-              ),
+            SizedBox(height: 8), // ลดความสูงของ Container
+            buildProfileItem('Username', _usernameController),
+            buildProfileItem('Bio', _bioController),
+            buildProfileItem('Pronouns', _pronounsController),
+            buildProfileItem('Age', _ageController),
+            buildProfileItem('Region', _regionController),
+            SizedBox(height: 20), // ลดความสูงของ Container
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment
+                  .spaceEvenly, // จัดวางปุ่มให้อยู่กึ่งกลางและมีระยะห่างเท่ากัน
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    // ทำบันทึกข้อมูลที่นี่
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue, // เปลี่ยนสีปุ่มเป็นสีเขียว
+                    shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(10), // เพิ่มความโค้งให้กับปุ่ม
+                    ),
+                    fixedSize: Size(95, 40),
+                  ),
+                  child: Text(
+                      'Save',
+                      style: TextStyle(
+                        color: Colors.white),),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // ทำการ Logout ที่นี่
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red, // เปลี่ยนสีปุ่มเป็นสีแดง
+                    shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(10), // เพิ่มความโค้งให้กับปุ่ม
+                    ),
+                    fixedSize: Size(95, 40),
+                  ),
+                  child: Text(
+                    'Logout',
+                    style: TextStyle(
+                        color: Colors.white), // เปลี่ยนสีตัวอักษรเป็นสีขาว
+                  ),
+                ),
+              ],
             ),
           ],
         ),
       ),
       bottomNavigationBar: FooterPage(
-        selectedIndex: _selectedIndex,
-        onItemTapped: _onItemTapped,
+        selectedIndex: 4,
+        onItemTapped: (index) {},
       ),
     );
   }
 
-  Widget buildProfileItem(String title, String detail) {
-    return Container(
-      height: 55,
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: BoxDecoration(
-        border: Border(
-          top: title == 'Name'
-              ? BorderSide(color: Colors.grey)
-              : BorderSide.none,
-          bottom: BorderSide(color: Colors.grey),
-        ),
-      ),
-      child: Row(
+  Widget buildProfileItem(String title, TextEditingController controller) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+          horizontal: 0.0, vertical: 0.0), // ลดความสูงของ Container
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-            flex: 2,
-            child: Text(
-              title,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            decoration: BoxDecoration(
+              color: Colors.white, // เปลี่ยนสีพื้นหลังเป็นสีขาว
+              border: Border(
+                top: BorderSide(
+                    color: Colors.grey, width: 0.5), // เพิ่มเส้นด้านบน
+                bottom: title == 'Region'
+                    ? BorderSide(color: Colors.grey, width: 0.5)
+                    : BorderSide.none, // เพิ่มเส้นด้านล่าง หากเป็น Region
               ),
             ),
-          ),
-          SizedBox(width: 8),
-          Expanded(
-            flex: 1,
-            child: Center(
-              child: Text(
-                detail,
-                style: TextStyle(
-                  fontSize: 16,
+            width: MediaQuery.of(context)
+                .size
+                .width, // กำหนดความยาวของ Container เท่ากับความกว้างของหน้าจอ
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
-              ),
+                Expanded(
+                  flex: 3,
+                  child: TextField(
+                    controller: controller,
+                    readOnly: true,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Edit $title'),
+                          content: TextField(
+                            controller: controller,
+                            decoration: InputDecoration(
+                              hintText: 'Enter new $title',
+                            ),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('Cancel'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('Save'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: Icon(Icons.chevron_right),
+                ),
+              ],
             ),
           ),
-          SizedBox(width: 8),
-          Icon(Icons.arrow_forward_ios),
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _bioController.dispose();
+    _pronounsController.dispose();
+    _ageController.dispose();
+    _regionController.dispose();
+    super.dispose();
   }
 }

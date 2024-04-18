@@ -42,7 +42,6 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          
           children: [
             Text(
               '@jennierubyjane',
@@ -62,74 +61,37 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.fromLTRB(16.0, 16, 16.0, 16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(height: 10),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                
                 CircleAvatar(
                   radius: 50,
                   backgroundImage: AssetImage('assets/jennie.jpg'),
                 ),
-                SizedBox(width: 20),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 40),
-                    Text(
-                      '    3',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    Text(
-                      'Following',
-                      style: TextStyle(fontSize: 15),
-                    ),
-                  ],
+                ProfileInfo(
+                  label: 'Following',
+                  value: '3',
                 ),
-                SizedBox(width: 20),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 40),
-                    Text(
-                      '  83.7k',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    Text(
-                      'Followers',
-                      style: TextStyle(fontSize: 15),
-                    ),
-                  ],
+                ProfileInfo(
+                  label: 'Followers',
+                  value: '83.7k',
                 ),
-                SizedBox(width: 20),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 40),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.baseline,
-                      textBaseline: TextBaseline.alphabetic,
-                      children: [
-                        Text(
-                          '       10.4K',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        SizedBox(width: 2),
-                      ],
-                    ),
-                    Text(
-                      '  Likes and saves',
-                      style: TextStyle(fontSize: 15),
-                    ),
-                  ],
+                ProfileInfo(
+                  label: 'Likes and saves',
+                  value: '10.4K',
                 ),
               ],
             ),
             SizedBox(height: 25),
             Row(
               children: [
+                SizedBox(width: 10,),
                 RichText(
                   text: TextSpan(
                     children: [
@@ -137,8 +99,11 @@ class _ProfilePageState extends State<ProfilePage> {
                         text: 'Jennie\n',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 16, // ปรับขนาดตามต้องการ
+                          fontSize: 20, 
                         ),
+                      ),
+                      WidgetSpan(
+                        child: SizedBox(height: 30),
                       ),
                       TextSpan(
                         text: 'Write a bio to help people discover you',
@@ -147,38 +112,13 @@ class _ProfilePageState extends State<ProfilePage> {
                     ],
                   ),
                 ),
-                IconButton(
-                  icon: Icon(Icons.edit),
-                  onPressed: () {},
-                ),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 25),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  width: 300,
-                  height: 40,
-                  child: ElevatedButton(
-                    onPressed: () => context.go('/editprofile'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        side: BorderSide(color: Colors.grey),
-                      ),
-                    ),
-                    child: Text(
-                      'Edit Profile',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
+                EditProfileButton(),
                 Container(
                   width: 40,
                   height: 40,
@@ -192,7 +132,6 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: IconButton(
                     onPressed: () {},
                     iconSize: 20,
-                    // share
                     icon: Icon(
                       Icons.ios_share,
                       color: Colors.black,
@@ -202,23 +141,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
             SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  icon: Icon(Icons.edit_outlined),
-                  onPressed: () {},
-                ),
-                IconButton(
-                  icon: Icon(Icons.bookmark_border),
-                  onPressed: () {},
-                ),
-                IconButton(
-                  icon: Icon(Icons.favorite_border),
-                  onPressed: () {},
-                ),
-              ],
-            ),
+            ProfileActions(),
           ],
         ),
       ),
@@ -226,6 +149,88 @@ class _ProfilePageState extends State<ProfilePage> {
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,
       ),
+    );
+  }
+}
+
+class ProfileInfo extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const ProfileInfo({
+    Key? key,
+    required this.label,
+    required this.value,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(height: 20),
+          Text(
+            value,
+            style: TextStyle(fontSize: 20),
+          ),
+          Text(
+            label,
+            style: TextStyle(fontSize: 13),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class EditProfileButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 300,
+      height: 40,
+      child: ElevatedButton(
+        onPressed: () => context.go('/editprofile'),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+            side: BorderSide(color: Colors.grey),
+          ),
+        ),
+        child: Text(
+          'Edit Profile',
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ProfileActions extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        IconButton(
+          icon: Icon(Icons.edit_outlined),
+          onPressed: () {},
+        ),
+        IconButton(
+          icon: Icon(Icons.bookmark_border),
+          onPressed: () {},
+        ),
+        IconButton(
+          icon: Icon(Icons.favorite_border),
+          onPressed: () {},
+        ),
+      ],
     );
   }
 }

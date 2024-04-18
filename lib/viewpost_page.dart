@@ -260,7 +260,28 @@ class _ViewPostPageState extends State<ViewPostPage> {
                   ),
                 ),
               )
-            ])
+            ]),
+            SizedBox(height: 15),
+            Container(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(color: Colors.grey, width: 0.5),
+                        ),
+                      ),
+                      padding: EdgeInsets.symmetric(horizontal: 15.0),
+                      child: Text(
+                        "9 comments",
+                        style: TextStyle(fontSize: 16.0, color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ])),
     );
   }

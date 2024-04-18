@@ -56,7 +56,7 @@ class FooterPage extends StatelessWidget {
             GoRouter.of(context).go('/viewpost');
             break;
           case 4:
-            GoRouter.of(context).go('/editprofile');
+            GoRouter.of(context).go('/profile');
             break;
         }
       },
