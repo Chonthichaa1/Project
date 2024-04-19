@@ -43,11 +43,11 @@ class _ViewPostPageState extends State<ViewPostPage> {
                     children: [
                       CircleAvatar(
                         radius: 25.0,
-                        backgroundImage: AssetImage('assets/jennie.jpg'),
+                        backgroundImage: AssetImage('assets/yeri.jpg'),
                       ),
                       SizedBox(width: 10.0),
                       Text(
-                        "Username",
+                        "yerimiese",
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
