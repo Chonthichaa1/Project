@@ -1,9 +1,7 @@
-// ignore_for_file: dead_code
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:login/login_bar.dart';
-import 'package:login/login_page.dart';
+// import 'package:login/login_page.dart';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -27,13 +25,11 @@ class _SignupPageState extends State<SignupPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               _buildHeader(),
-              _loginBar(),
+              LoginBar(),
               _buildEmailField(),
               _buildPasswordField(),
               _buildConfirmPasswordField(),
-              Expanded(
-                child: Container(),
-              ),
+              Spacer(),
               _buildLoginButton(),
             ],
           ),
@@ -83,7 +79,7 @@ class _SignupPageState extends State<SignupPage> {
             ),
             SizedBox(height: 10),
             Text(
-              "Please enter your email and password details to access your account",
+              "Please create your email and password details to access your account",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16.0,
@@ -265,27 +261,6 @@ class _SignupPageState extends State<SignupPage> {
           ),
         ),
       ),
-    );
-  }
-
-  _loginBar() {
-    return loginBar(
-      onSignupPressed: handleSignupPressed,
-      onLoginPressed: handleLoginPressed,
-    );
-  }
-
-  void handleSignupPressed() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => SignupPage()),
-    );
-  }
-
-  void handleLoginPressed() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
     );
   }
 }

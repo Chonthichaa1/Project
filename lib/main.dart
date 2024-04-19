@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:login/editprofile_page.dart';
 import 'package:login/profile_page.dart';
 
-import 'login_page.dart'; 
+import 'login_page.dart';
 import 'signup_page.dart';
 import 'restaurantabout_.dart';
 import 'search_page.dart';
@@ -19,12 +19,12 @@ void main() {
 final GoRouter _router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
-      path:'/',
-      builder: (BuildContext context, GoRouterState state ) {
+      path: '/',
+      builder: (BuildContext context, GoRouterState state) {
         return LoginPage();
       },
       // Route Configure
-      routes: <RouteBase> [
+      routes: <RouteBase>[
         GoRoute(
           path: "firstpage",
           builder: (BuildContext context, GoRouterState state) {
@@ -85,13 +85,12 @@ final GoRouter _router = GoRouter(
             return LoginPage();
           },
         ),
-      ],  
-      
+      ],
     ),
   ],
 );
 
-class MyApp extends StatelessWidget  {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
@@ -99,3 +98,4 @@ class MyApp extends StatelessWidget  {
     );
   }
 }
+

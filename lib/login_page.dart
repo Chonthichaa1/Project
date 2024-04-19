@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+// import 'package:login/signup_page.dart';
 import 'package:login/login_bar.dart';
-import 'package:login/signup_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -23,12 +23,10 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               _buildHeader(),
-              _loginBar(),
+              LoginBar(),
               _buildEmailField(),
               _buildPasswordField(),
-              Expanded(
-                child: Container(),
-              ),
+              Spacer(),
               _buildLoginButton(),
             ],
           ),
@@ -198,27 +196,6 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
-    );
-  }
-
-  Widget _loginBar() {
-    return loginBar(
-      onSignupPressed: handleSignupPressed,
-      onLoginPressed: handleLoginPressed,
-    );
-  }
-
-  void handleSignupPressed() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => SignupPage()),
-    );
-  }
-
-  void handleLoginPressed() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
     );
   }
 }
