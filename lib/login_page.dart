@@ -37,12 +37,12 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildHeader() {
     return Container(
-      width: double.infinity,
-      height: 200.0,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/login.jpg'),
-          fit: BoxFit.cover,
+        width: double.infinity,
+        height: 200.0,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/login.jpg'),
+            fit: BoxFit.cover,
         ),
       ),
       child: Padding(
