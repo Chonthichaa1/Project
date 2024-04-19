@@ -11,6 +11,7 @@ import 'notification_page.dart';
 import "post_page.dart";
 import "viewpost_page.dart";
 import "home_page.dart";
+import "reviewmap_page.dart";
 
 void main() {
   runApp(MyApp());
@@ -83,6 +84,12 @@ final GoRouter _router = GoRouter(
           path: "login",
           builder: (BuildContext context, GoRouterState state) {
             return LoginPage();
+          },
+        ),
+        GoRoute(
+          path: "reviewmap",
+          builder: (BuildContext context, GoRouterState state) {
+            return reviewmap();
           },
         ),
       ],

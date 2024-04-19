@@ -16,11 +16,13 @@ class FooterPage extends StatelessWidget {
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.home, color: selectedIndex == 0 ? Colors.blue : Colors.black),
+          icon: Icon(Icons.home,
+              color: selectedIndex == 0 ? Colors.blue : Colors.black),
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search, color: selectedIndex == 1 ? Colors.blue : Colors.black),
+          icon: Icon(Icons.search,
+              color: selectedIndex == 1 ? Colors.blue : Colors.black),
           label: '',
         ),
         BottomNavigationBarItem(
@@ -28,26 +30,29 @@ class FooterPage extends StatelessWidget {
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.map, color: selectedIndex == 3 ? Colors.blue : Colors.black),
+          icon: Icon(Icons.map,
+              color: selectedIndex == 3 ? Colors.blue : Colors.black),
           label: '',
         ),
         BottomNavigationBarItem(
           icon: CircleAvatar(
-          backgroundImage: AssetImage('assets/jisoo.jpg'),
-          radius: 15,
-        ),
+            backgroundImage: AssetImage('assets/jisoo.jpg'),
+            radius: 15,
+          ),
           label: '',
         ),
       ],
-      currentIndex: selectedIndex,
+
+      currentIndex: selectedIndex < 0
+          ? 0
+          : selectedIndex, // ตรวจสอบค่า currentIndex ก่อนการใช้งาน
       onTap: (index) {
-        onItemTapped(index); // ส่ง index ไปยัง callback ที่เกี่ยวข้องกับการเปลี่ยนแปลงที่ด้านบน
         switch (index) {
           case 0:
             GoRouter.of(context).go('/firstpage');
             break;
           case 1:
-            GoRouter.of(context).go('/search');
+            GoRouter.of(context).go('/restaurant');
             break;
           case 2:
             GoRouter.of(context).go('/post');

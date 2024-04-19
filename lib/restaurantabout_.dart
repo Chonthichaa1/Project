@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:rating_summary/rating_summary.dart';
+import 'reviewmap_page.dart';
+import 'footer_page.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
   runApp(const TabBarinfo());
@@ -43,7 +47,12 @@ class _TabBarinfoStateState extends State<_TabBarinfoState>
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          leading: Icon(Icons.arrow_back_ios),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              GoRouter.of(context).go('/profile');
+            },
+          ),
           actions: [
             Icon(Icons.ios_share),
             Icon(Icons.more_horiz),
@@ -104,7 +113,7 @@ class _TabBarinfoStateState extends State<_TabBarinfoState>
                       ),
                     ),
                   ),
-                  SizedBox(height: 11),
+                  SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         vertical: 10.0, horizontal: 10.0),
@@ -165,7 +174,7 @@ class _TabBarinfoStateState extends State<_TabBarinfoState>
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 20),
                         Center(
                           child: Container(
                             width: 400, // กำหนดความกว้างของ Container
@@ -209,8 +218,8 @@ class _TabBarinfoStateState extends State<_TabBarinfoState>
                                           Text(
                                             'Updated by others 2 weeks ago',
                                             style: TextStyle(
-                                              fontSize: 16, color: Colors.grey
-                                            ),
+                                                fontSize: 16,
+                                                color: Colors.grey),
                                           ),
                                         ],
                                       ),
@@ -227,11 +236,13 @@ class _TabBarinfoStateState extends State<_TabBarinfoState>
                 ],
               ),
             ),
-            ListTile(
-              title: Text('Review'),
-              subtitle: Text('Reviews of the restaurant'),
-            ),
+            reviewmap(), // Add this line to show profile page
           ],
+        ),
+        bottomNavigationBar: FooterPage(
+          selectedIndex:
+              3, // กำหนด selectedIndex เป็น -1 เพื่อไม่ให้มีการเลือกไอคอนเลย
+          onItemTapped: (index) {}, // ไม่ต้องทำอะไรเมื่อมีการเลือกไอคอน
         ),
       ),
     );
