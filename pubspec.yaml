@@ -69,6 +69,11 @@ flutter:
     - assets/Yeri.jpg
     - assets/eunwoo.jpg
     - assets/kayoung.jpg
+    #logo
+    - assets/messenger.jpg
+    - assets/line.png
+    - assets/copylink.jpg
+    - assets/Instagram.png
 
 
   # The following line ensures that the Material Icons font is
