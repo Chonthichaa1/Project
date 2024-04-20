@@ -72,10 +72,19 @@ flutter:
     - assets/Yeri.jpg
     - assets/eunwoo.jpg
     - assets/kayoung.jpg
+<<<<<<< HEAD
     # food
     - assets/Alien mochi.jpg
     # MAP
     - assets/map.png
+=======
+    #logo
+    - assets/messenger.jpg
+    - assets/line.png
+    - assets/copylink.jpg
+    - assets/Instagram.png
+
+>>>>>>> main
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

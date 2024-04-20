@@ -245,6 +245,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _pronounsController.dispose();
     _ageController.dispose();
     _regionController.dispose();
-    super.dispose();
+    super.dispose();    
   }
 }
