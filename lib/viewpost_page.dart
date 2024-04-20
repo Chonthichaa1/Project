@@ -73,7 +73,6 @@ class _ViewPostPageState extends State<ViewPostPage> {
               ),
             ),
           ),
-<<<<<<< HEAD
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -84,129 +83,6 @@ class _ViewPostPageState extends State<ViewPostPage> {
                 height: 60.0,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-=======
-          body: Column(children: [
-            SizedBox(height: 20.0),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              height: 60.0,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 25.0,
-                        backgroundImage: AssetImage('assets/yeri.jpg'),
-                      ),
-                      SizedBox(width: 10.0),
-                      Text(
-                        "yerimiese",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Follow",
-                      style: TextStyle(color: Colors.white, fontSize: 16),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      backgroundColor: Colors.blue,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 20.0),
-            Container(
-              width: 400.0, // กำหนดความกว้างของ Container
-              height: 350.0, // กำหนดความสูงของ Container
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        PageView(
-                          scrollDirection: Axis.horizontal,
-                          onPageChanged: _pageChanged,
-                          children: [
-                            _buildImage('assets/jisoo.jpg'),
-                            _buildImage('assets/jennie.jpg'),
-                            _buildImage('assets/rose.jpg'),
-                            _buildImage('assets/lisa.jpg'),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 20.0),
-                  Container(
-                    height: 20.0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        for (int i = 0; i < 4; i++)
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: 5.0),
-                            width: 10.0,
-                            height: 10.0,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: i == _currentPage
-                                  ? Colors.black
-                                  : Colors.grey,
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 20.0),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Post Title",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    "Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac lorem nec turpis blandit interdum.",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                    ),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    "#Mahidol",
-                    style: TextStyle(fontSize: 15.0, color: Colors.green),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 10.0),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
->>>>>>> main-Kartoon
                   children: [
                     Row(
                       children: [

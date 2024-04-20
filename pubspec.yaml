@@ -70,32 +70,35 @@ flutter:
     - assets/eunwoo.jpg
     - assets/kayoung.jpg
     # food
-    # - assets/Alien mochi.jpg
-    # - assets/Alien mochi.jpg
-    # - assets/Bread roll.jpg
-    # - assets/Bread.jpg
-    # - assets/Coffee.jpg
-    # - assets/Dangngo.jpg
-    # - assets/Haiteelao post.jpg
-    # - assets/Honey Toast Post.jpg
-    # - assets/Icecream Melody.jpg
-    # - assets/Kitty donut.jpg
-    # - assets/Mochi grill.jpg
-    # - assets/pompom post.jpg
+    - assets/Alien mochi.jpg
+    - assets/Bread roll.jpg
+    - assets/Bread.jpg
+    - assets/Coffee.jpg
+    - assets/Dangngo.jpg
+    - assets/Haiteelao post.jpg
+    - assets/Honey Toast Post.jpg
+    - assets/Icecream Melody.jpg
+    - assets/Kitty donut.jpg
+    - assets/Mochi grill.jpg
+    # view post
+    - assets/pompom post.jpg
+    - assets/Bingsu.jpg
+    - assets/kitty cupcake.jpg
+    - assets/kitty honeytoast.jpg
     # post home
-    # - assets/Beef post.jpg
-    # - assets/Restaurant.jpg
-    # - assets/Review1.jpg
-    # - assets/Review2.jpg
-    # - assets/Roti post.jpg
-    # - assets/Salapao.jpg
-    # - assets/Shushi.jpg
-    # - assets/Teenoi post.jpg
-    # - assets/Thai Tea post.jpg
-    # - assets/thanghoolu.jpg
-    # - assets/Yum post.jpg
+    - assets/Beef post.jpg
+    - assets/Roti post.jpg
+    - assets/Salapao.jpg
+    - assets/Shushi.jpg
+    - assets/Teenoi post.jpg
+    - assets/Thai Tea post.jpg
+    - assets/thanghoolu.jpg
+    - assets/Yum post.jpg
+    # review
+    - assets/Review1.jpg
+    - assets/Review2.jpg
+    - assets/Restaurant.jpg
 
-    # food
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
