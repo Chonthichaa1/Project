@@ -36,7 +36,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
       comment: 'This is a topic comment.',
       timestamp: '2568-12-30',
       profilePictureUrl:
-          'assets\rose.jpg',
+          'assets/rose.jpg',
       likes: 200,
     ),
     Comment(
@@ -47,7 +47,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
       replyTo: 'User1',
       likes: 1000,
       profilePictureUrl:
-          'assets\jennie.jpg',
+          'assets/jennie.jpg',
     ),
     // Add more comments here
   ];

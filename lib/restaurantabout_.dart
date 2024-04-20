@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rating_summary/rating_summary.dart';
 import 'reviewmap_page.dart';
 import 'footer_page.dart';
 import 'package:go_router/go_router.dart';

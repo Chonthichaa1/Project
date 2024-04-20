@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'footer_page.dart';
+import 'package:go_router/go_router.dart';
 
 class MyHomePage extends StatelessWidget {
   final TextEditingController searchController = TextEditingController();
@@ -15,7 +16,9 @@ class MyHomePage extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.notifications),
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).go('/notification');
+            },
           ),
         ],
         title: Row(
@@ -38,7 +41,7 @@ class MyHomePage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: SizedBox(
-          height: MediaQuery.of(context).size.height*2,
+          height: MediaQuery.of(context).size.height * 2,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -78,17 +81,37 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    border: Border.all(
-                      width: 80,
-                      color: Color.fromARGB(255, 164, 164, 164),
+              Center(
+                child: GestureDetector(
+                  onTap: () {
+                    GoRouter.of(context).go('/MapScreen');
+                  },
+                  child: Container(
+                    width: 350, // กำหนดความกว้างเท่ากับขนาดของหน้าจอ
+                    height: 200, // กำหนดความสูงเป็น 300 pixels
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                          20.0), // กำหนดเป็นความโค้งรอบกรอบ
+                      boxShadow: [
+                        // เพิ่มเงาให้กับกรอบ
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // กำหนดทิศทางของเงา
+                        ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(
+                          20.0), // กำหนดเป็นความโค้งรอบ Container ด้วย ClipRRect
+                      child: Image.asset(
+                        'assets/map.png',
+                        fit: BoxFit
+                            .cover, // ให้รูปภาพเต็มขนาดและปรับตามขนาดของ Container
+                      ),
                     ),
                   ),
-                  // Add your image or map widget here
                 ),
               ),
               Padding(
@@ -105,56 +128,56 @@ class MyHomePage extends StatelessWidget {
                 spacing: 10.0,
                 runSpacing: 10.0,
                 children: [
-                BuilPosthomepage(
+                  BuilPosthomepage(
                     imagePath: 'assets/jennie.jpg',
                     restaurantName: 'ร้านอาหาร1',
                     profileImageUrl: 'assets/jisoo.jpg',
                     username: 'user123',
                     likes: 100,
                   ),
-                BuilPosthomepage(
+                  BuilPosthomepage(
                     imagePath: 'assets/jisoo.jpg',
                     restaurantName: 'ร้านอาหาร2',
                     profileImageUrl: 'assets/jennie.jpg',
                     username: 'user123',
                     likes: 100,
                   ),
-                BuilPosthomepage(
+                  BuilPosthomepage(
                     imagePath: 'assets/lisa.jpg',
                     restaurantName: 'ร้านอาหาร3',
                     profileImageUrl: 'assets/rose.jpg',
                     username: 'user123',
                     likes: 100,
                   ),
-                BuilPosthomepage(
+                  BuilPosthomepage(
                     imagePath: 'assets/rose.jpg',
                     restaurantName: 'ร้านอาหาร4',
                     profileImageUrl: 'assets/lisa.jpg',
                     username: 'user123',
                     likes: 100,
                   ),
-                BuilPosthomepage(
+                  BuilPosthomepage(
                     imagePath: 'assets/jennie.jpg',
                     restaurantName: 'ร้านอาหาร5',
                     profileImageUrl: 'assets/jisoo.jpg',
                     username: 'user123',
                     likes: 100,
                   ),
-                BuilPosthomepage(
+                  BuilPosthomepage(
                     imagePath: 'assets/jisoo.jpg',
                     restaurantName: 'ร้านอาหาร6',
                     profileImageUrl: 'assets/jennie.jpg',
                     username: 'user123',
                     likes: 100,
                   ),
-                BuilPosthomepage(
+                  BuilPosthomepage(
                     imagePath: 'assets/lisa.jpg',
                     restaurantName: 'ร้านอาหาร7',
                     profileImageUrl: 'assets/rose.jpg',
                     username: 'user123',
                     likes: 100,
                   ),
-                BuilPosthomepage(
+                  BuilPosthomepage(
                     imagePath: 'assets/rose.jpg',
                     restaurantName: 'ร้านอาหาร8',
                     profileImageUrl: 'assets/lisa.jpg',

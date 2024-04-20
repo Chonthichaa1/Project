@@ -69,7 +69,6 @@ class _ProfilePageState extends State<ProfilePage> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                
                 CircleAvatar(
                   radius: 50,
                   backgroundImage: AssetImage('assets/jennie.jpg'),
@@ -91,7 +90,9 @@ class _ProfilePageState extends State<ProfilePage> {
             SizedBox(height: 25),
             Row(
               children: [
-                SizedBox(width: 10,),
+                SizedBox(
+                  width: 10,
+                ),
                 RichText(
                   text: TextSpan(
                     children: [
@@ -99,7 +100,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         text: 'Jennie\n',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 20, 
+                          color: Colors.black,
+                          fontSize: 20,
                         ),
                       ),
                       WidgetSpan(
@@ -142,6 +144,21 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: 10),
             ProfileActions(),
+            // กำหนดระยะห่างระหว่างขอบจอด้านซ้ายและขวา
+            SizedBox(height: 10),
+            Wrap(
+              alignment: WrapAlignment.start,
+              spacing: 0,
+              runSpacing: 0,
+              children: [
+                buildContainer(130, 130, 'assets/jennie.jpg'),
+                buildContainer(130, 130, 'assets/jisoo.jpg'),
+                buildContainer(130, 130, 'assets/lisa.jpg'),
+                buildContainer(130, 130, 'assets/rose.jpg'),
+                buildContainer(130, 130, 'assets/Joy.jpg'),
+                buildContainer(130, 130, 'assets/Yeri.jpg'),
+              ],
+            ),
           ],
         ),
       ),
@@ -151,6 +168,19 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
     );
   }
+}
+
+Widget buildContainer(double width, double height, String imagePath) {
+  return Container(
+    width: width,
+    height: height,
+    child: ClipRRect(
+      child: Image.asset(
+        imagePath,
+        fit: BoxFit.cover,
+      ),
+    ),
+  );
 }
 
 class ProfileInfo extends StatelessWidget {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import "package:go_router/go_router.dart";
+import 'footer_page.dart';
 class NotificationPage extends StatefulWidget {
   @override
   _NotificationPageState createState() => _NotificationPageState();
@@ -64,7 +65,7 @@ class _NotificationPageState extends State<NotificationPage>
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context);
+            GoRouter.of(context).go('/firstpage');
           },
         ),
         title: Text('Notifications'),
@@ -97,6 +98,10 @@ class _NotificationPageState extends State<NotificationPage>
           _buildListView('Follows notifications'),
           _buildListView('Comment notifications'),
         ],
+      ),
+      bottomNavigationBar: FooterPage(
+        selectedIndex: 2,
+        onItemTapped: (index) {},
       ),
     );
   }

@@ -4,7 +4,6 @@ import 'package:login/editprofile_page.dart';
 import 'package:login/profile_page.dart';
 
 import 'login_page.dart';
-import 'signup_page.dart';
 import 'restaurantabout_.dart';
 import 'search_page.dart';
 import 'notification_page.dart';
@@ -12,6 +11,7 @@ import "post_page.dart";
 import "viewpost_page.dart";
 import "home_page.dart";
 import "reviewmap_page.dart";
+import "map.dart";
 
 void main() {
   runApp(MyApp());
@@ -75,12 +75,6 @@ final GoRouter _router = GoRouter(
           },
         ),
         GoRoute(
-          path: "signup",
-          builder: (BuildContext context, GoRouterState state) {
-            return SignupPage();
-          },
-        ),
-        GoRoute(
           path: "login",
           builder: (BuildContext context, GoRouterState state) {
             return LoginPage();
@@ -92,11 +86,16 @@ final GoRouter _router = GoRouter(
             return reviewmap();
           },
         ),
+        GoRoute(
+          path: "MapScreen",
+          builder: (BuildContext context, GoRouterState state) {
+            return MapScreen();
+          },
+        ),
       ],
     ),
   ],
 );
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

@@ -265,8 +265,8 @@ class _ImageContainerState extends State<ImageContainer> {
   }
 
   Future<void> _pickImage(BuildContext context) async {
-    final picker = ImagePicker();
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    final picker = ImagePicker(); // สร้างอ็อบเจกต์ ImagePicker
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery); // เรียกใช้เมธอด pickImage บนอ็อบเจกต์ ImagePicker
 
     if (pickedFile != null) {
       setState(() {
