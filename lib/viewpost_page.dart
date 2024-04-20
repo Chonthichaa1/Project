@@ -36,7 +36,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
       comment: 'This is a topic comment.',
       timestamp: '2568-12-30',
       profilePictureUrl:
-          'assets\rose.jpg',
+          'assets/rose.jpg',
       likes: 200,
     ),
     Comment(
@@ -47,7 +47,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
       replyTo: 'User1',
       likes: 1000,
       profilePictureUrl:
-          'assets\jennie.jpg',
+          'assets/jennie.jpg',
     ),
     // Add more comments here
   ];
@@ -88,11 +88,11 @@ class _ViewPostPageState extends State<ViewPostPage> {
                       children: [
                         CircleAvatar(
                           radius: 30.0,
-                          backgroundImage: AssetImage('assets/jennie.jpg'),
+                          backgroundImage: AssetImage('assets/yeri.jpg'),
                         ),
                         SizedBox(width: 10.0),
                         Text(
-                          "Username",
+                          "yerimiese",
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -130,10 +130,10 @@ class _ViewPostPageState extends State<ViewPostPage> {
                             scrollDirection: Axis.horizontal,
                             onPageChanged: _pageChanged,
                             children: [
-                              _buildImage('assets/jisoo.jpg'),
-                              _buildImage('assets/jennie.jpg'),
-                              _buildImage('assets/rose.jpg'),
-                              _buildImage('assets/lisa.jpg'),
+                              _buildImage('assets/pom pom post.jpg'),
+                              _buildImage('assets/Bingsu.jpg'),
+                              _buildImage('assets/kitty cupcake.jpg'),
+                              _buildImage('assets/kitty honeytoast.jpg'),
                             ],
                           ),
                         ],
