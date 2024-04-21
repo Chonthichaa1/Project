@@ -14,7 +14,7 @@ class LoginBar extends StatefulWidget {
   @override
   _LoginBarState createState() => _LoginBarState();
 }
-
+  
 class _LoginBarState extends State<LoginBar> {
   @override
   Widget build(BuildContext context) {

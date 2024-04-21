@@ -126,7 +126,7 @@ class _NotificationPageState extends State<NotificationPage>
                   decoration: BoxDecoration(
                   ),
                   child: Image.asset(
-                    'assets/Alien mochi.jpg',
+                    'assets/img/foods/Alienmochi.jpg',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -169,7 +169,7 @@ class _NotificationPageState extends State<NotificationPage>
                   decoration: BoxDecoration(
                   ),
                   child: Image.asset(
-                    'assets/Alien mochi.jpg',
+                    'assets/img/foods/Alienmochi.jpg',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -212,7 +212,7 @@ class _NotificationPageState extends State<NotificationPage>
                   decoration: BoxDecoration(
                   ),
                   child: Image.asset(
-                    'assets/Alien mochi.jpg',
+                    'assets/img/foods/Alienmochi.jpg',
                     fit: BoxFit.cover,
                   ),
                 ),

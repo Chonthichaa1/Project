@@ -3,6 +3,8 @@ import 'footer_page.dart';
 import 'package:go_router/go_router.dart';
 
 class MyHomePage extends StatelessWidget {
+  final String? email;
+  MyHomePage({this.email});
   final TextEditingController searchController = TextEditingController();
 
   @override

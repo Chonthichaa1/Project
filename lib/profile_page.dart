@@ -1,7 +1,10 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:login/BottomSheet/share_page.dart';
 import 'footer_page.dart';
-import "package:go_router/go_router.dart";
+import 'login_page.dart';
+import 'package:go_router/go_router.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:login/BottomSheet/share_page.dart';
 
 class ProfileApp extends StatelessWidget {
   @override
@@ -18,22 +21,58 @@ class ProfileApp extends StatelessWidget {
 }
 
 class ProfilePage extends StatefulWidget {
+  final String email = UserData().emailf;
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  int _selectedIndex = 4;
+  late TextEditingController _usernameController = TextEditingController();
+  late TextEditingController _bioController = TextEditingController();
 
-  void _onItemTapped(int index) {
-    setState(() {
-      showModalBottomSheet(
-        context: context,
-        builder: (context) => SharePage(),
-      );
-      _selectedIndex = index;
-    });
+  late File _selectedImage = File('assets/img/profile/jennie.jpg');
+
+  @override
+  void initState() {
+    super.initState();
+    _usernameController = TextEditingController();
+    _bioController = TextEditingController();
+    _fetchUserData();
   }
+
+  void _fetchUserData() async {
+    try {
+      QuerySnapshot userData = await FirebaseFirestore.instance
+          .collection('users')
+          .where('email', isEqualTo: widget.email)
+          .limit(1)
+          .get();
+      if (userData.docs.isNotEmpty) {
+        Map<String, dynamic> user =
+            userData.docs.first.data() as Map<String, dynamic>;
+        setState(() {
+          _usernameController.text = user['username'] ?? '';
+          _bioController.text = user['bio'] ?? '';
+          String? profileImagePath = user['profileImage'];
+          if (profileImagePath != null) {
+            _selectedImage = File(profileImagePath);
+          }
+        });
+      } else {
+        print('User data not found');
+      }
+    } catch (e) {
+      print('Error fetching user data: $e');
+    }
+  }
+  
+  void _showBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => SharePage(), // แสดง BottomSheet จาก share_page.dart
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +81,14 @@ class _ProfilePageState extends State<ProfilePage> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () {
-            Navigator.pop(context);
+            GoRouter.of(context).go('/firstpage');
           },
         ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '@jennierubyjane',
+              "@${_usernameController.text}",
               style: TextStyle(color: Colors.black),
             )
           ],
@@ -74,9 +113,24 @@ class _ProfilePageState extends State<ProfilePage> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  radius: 50,
-                  backgroundImage: AssetImage('assets/jennie.jpg'),
+                GestureDetector(
+                  onTap: _selectedImage == null
+                      ? null
+                      : null, 
+                  child: CircleAvatar(
+                    backgroundColor: Colors.transparent,
+                    radius: 50,
+                    backgroundImage:
+                        _selectedImage?.path != null 
+                            ? FileImage(_selectedImage!)
+                            : AssetImage('assets/jennie.jpg') as ImageProvider,
+                    child: _selectedImage == null
+                        ? Icon(
+                            Icons.camera_alt,
+                            size: 30,
+                          )
+                        : null,
+                  ),
                 ),
                 ProfileInfo(
                   label: 'Following',
@@ -102,7 +156,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: 'Jennie\n',
+                        text: "${_usernameController.text}\n",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
@@ -113,7 +167,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: SizedBox(height: 30),
                       ),
                       TextSpan(
-                        text: 'Write a bio to help people discover you',
+                        text: _bioController.text,
                         style: TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                     ],
@@ -137,7 +191,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                   child: IconButton(
-                    onPressed: () => _onItemTapped(_selectedIndex),
+                    onPressed: () {_showBottomSheet(context);},
                     iconSize: 20,
                     icon: Icon(
                       Icons.share,
@@ -149,7 +203,6 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: 10),
             ProfileActions(),
-            // กำหนดระยะห่างระหว่างขอบจอด้านซ้ายและขวา
             SizedBox(height: 10),
             Wrap(
               alignment: WrapAlignment.start,
@@ -160,7 +213,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 buildContainer(130, 130, 'assets/jisoo.jpg'),
                 buildContainer(130, 130, 'assets/lisa.jpg'),
                 buildContainer(130, 130, 'assets/rose.jpg'),
-                buildContainer(130, 130, 'assets/Joy.jpg'),
+                buildContainer(130, 130, 'assets/eunwoo.jpg'),
                 buildContainer(130, 130, 'assets/Yeri.jpg'),
               ],
             ),
@@ -168,8 +221,8 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
       bottomNavigationBar: FooterPage(
-        selectedIndex: _selectedIndex,
-        onItemTapped: _onItemTapped,
+        selectedIndex: 4,
+        onItemTapped: (index) {},
       ),
     );
   }
@@ -226,7 +279,7 @@ class EditProfileButton extends StatelessWidget {
       width: 300,
       height: 40,
       child: ElevatedButton(
-        onPressed: () => context.go('/editprofile'),
+        onPressed: () {GoRouter.of(context).go('/editprofile');},
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,

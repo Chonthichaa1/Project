@@ -119,7 +119,7 @@ class _TabBarinfoStateState extends State<_TabBarinfoState>
                         // กำหนดรูปร่างของ Container
                         image: DecorationImage(
                           image: AssetImage(
-                              'assets/login.jpg'), // รูปภาพที่ต้องการใส่ใน Container
+                              'assets/img/foods/food.jpg'), // รูปภาพที่ต้องการใส่ใน Container
                           fit: BoxFit.cover, // ปรับขนาดรูปภาพให้เต็ม Container
                         ),
                       ),

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:login/editprofile_page.dart';
 import 'package:login/profile_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'login_page.dart';
 import 'restaurantabout_.dart';
@@ -13,8 +16,12 @@ import "home_page.dart";
 import "reviewmap_page.dart";
 import "map.dart";
 
-void main() {
+void main() async {
+  final String email = "";
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
+  
 }
 
 final GoRouter _router = GoRouter(

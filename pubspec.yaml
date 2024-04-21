@@ -42,6 +42,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   go_router: ^13.2.4
+  firebase_core: ^2.30.0
+  cloud_firestore: ^4.17.0
+  firebase_auth: ^4.3.0
+  firebase_storage: ^11.7.2
 
 dev_dependencies:
   flutter_test:
@@ -62,23 +66,25 @@ flutter:
 
   assets:
     # login
-    - assets/login.jpg
+    - assets/img/login/login.jpg
     # profile
-    - assets/jisoo.jpg
-    - assets/jennie.jpg
-    - assets/rose.jpg
-    - assets/lisa.jpg
-    - assets/joy.jpg
-    - assets/Yeri.jpg
-    - assets/eunwoo.jpg
-    - assets/kayoung.jpg
+    - assets/img/profile/jisoo.jpg
+    - assets/img/profile/jennie.jpg
+    - assets/img/profile/rose.jpg
+    - assets/img/profile/lisa.jpg
+    - assets/img/profile/joy.jpg
+    - assets/img/profile/Yeri.jpg
+    - assets/img/profile/eunwoo.jpg
+    - assets/img/profile/kayoung.jpg
     #logo
-    - assets/messenger.jpg
-    - assets/line.png
-    - assets/copylink.jpg
-    - assets/Instagram.png
-    #map
-    - assets/map.png
+    - assets/img/iconapp/messenger.jpg
+    - assets/img/iconapp/line.png
+    - assets/img/iconapp/copylink.jpg
+    - assets/img/iconapp/Instagram.png
+    - assets/img/iconapp/map.png
+    #food
+    - assets/img/foods/Alienmochi.jpg
+    - assets/img/foods/food.jpg
 
 
   # The following line ensures that the Material Icons font is

@@ -1,61 +1,15 @@
-import 'dart:typed_data';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'footer_page.dart';
+import 'login_page.dart';
 import 'package:go_router/go_router.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final double appBarHeight = 60.0;
-
-  const CustomAppBar({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: SafeArea(
-        child: Container(
-          height: appBarHeight,
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(
-                color: Colors.grey,
-                width: 0.5,
-              ),
-            ),
-          ),
-          child: Row(
-            children: [
-              IconButton(
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.black,
-                ),
-                onPressed: () => context.go('/profile'),
-              ),
-              Expanded(
-                child: Center(
-                  child: Text(
-                    'Edit Profile',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20.0,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  @override
-  Size get preferredSize => Size.fromHeight(appBarHeight);
-}
 
 class EditProfilePage extends StatefulWidget {
+  final String email = UserData().emailf;
   @override
   _EditProfilePageState createState() => _EditProfilePageState();
 }
@@ -66,8 +20,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
   late TextEditingController _pronounsController;
   late TextEditingController _ageController;
   late TextEditingController _regionController;
-  late Uint8List? _selectedImage = null;
-
+  late File? _selectedImage;
+  late User? _currentUser;
 
   @override
   void initState() {
@@ -77,23 +31,81 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _pronounsController = TextEditingController();
     _ageController = TextEditingController();
     _regionController = TextEditingController();
+    _fetchUserData();
+    _selectedImage = null; 
+  }
+
+  void _fetchUserData() async {
+    try {
+      QuerySnapshot userData = await FirebaseFirestore.instance
+          .collection('users')
+          .where('email', isEqualTo: widget.email)
+          .limit(1)
+          .get();
+      if (userData.docs.isNotEmpty) {
+        Map<String, dynamic> user =
+            userData.docs.first.data() as Map<String, dynamic>;
+        setState(() {
+          _usernameController.text = user['username'] ?? '';
+          _bioController.text = user['bio'] ?? '';
+          _pronounsController.text = user['pronouns'] ?? '';
+          _ageController.text = user['age'] ?? '';
+          _regionController.text = user['region'] ?? '';
+          print('User data found');
+          String? profileImagePath = user['profileImage'];
+          if (profileImagePath != null) {
+            _selectedImage = File(profileImagePath);
+          }
+        });
+      } else {
+        print('User data not found');
+      }
+    } catch (e) {
+      print('Error fetching user data: $e');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+          onPressed: () => context.go('/profile'),
+        ),
+        title: Text(
+          'Edit Profile',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20.0,
+          ),
+        ),
+        centerTitle: true,
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 16),
             GestureDetector(
+              onTap: _pickImage,
               child: CircleAvatar(
-                backgroundImage: _selectedImage != null
-                    ? Image.memory(_selectedImage!).image
-                    : AssetImage('assets/jennie.jpg'),
+                backgroundColor: Colors.transparent,
                 radius: 50,
+                backgroundImage: _selectedImage != null
+                    ? FileImage(_selectedImage!)
+                    : AssetImage('assets/jennie.jpg') as ImageProvider,
+                child: _selectedImage == null
+                    ? Icon(
+                        Icons.camera_alt,
+                        size: 30,
+                      )
+                    : null,
               ),
             ),
             SizedBox(height: 16),
@@ -108,18 +120,21 @@ class _EditProfilePageState extends State<EditProfilePage> {
               ),
             ),
             SizedBox(height: 8),
-            buildProfileItem('Username', _usernameController),
-            buildProfileItem('Bio', _bioController),
-            buildProfileItem('Pronouns', _pronounsController),
-            buildProfileItem('Age', _ageController),
-            buildProfileItem('Region', _regionController),
+            buildProfileItem(
+                'Username', _usernameController, 'Enter username...'),
+            buildProfileItem('Bio', _bioController, 'Enter bio...'),
+            buildProfileItem(
+                'Pronouns', _pronounsController, 'Enter pronouns...'),
+            buildProfileItem('Age', _ageController, 'Enter age...'),
+            buildProfileItem('Region', _regionController, 'Enter region...'),
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Save data here
+                    _fetchUserData();
+                    _updateUserData();
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
@@ -137,7 +152,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // Logout here
+                    GoRouter.of(context).go('/');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
@@ -165,7 +180,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
     );
   }
 
-  Widget buildProfileItem(String title, TextEditingController controller) {
+  Widget buildProfileItem(
+      String title, TextEditingController controller, String hintText) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0.0),
       child: Column(
@@ -197,8 +213,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   flex: 3,
                   child: TextField(
                     controller: controller,
-                    readOnly: true,
+                    // readOnly: true, // Remove this line
                     decoration: InputDecoration(
+                      hintText: hintText,
                       border: InputBorder.none,
                     ),
                   ),
@@ -225,6 +242,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             ),
                             TextButton(
                               onPressed: () {
+                                // Save the data here
                                 Navigator.of(context).pop();
                               },
                               child: Text('Save'),
@@ -249,9 +267,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
     final pickedImage = await picker.pickImage(source: ImageSource.gallery);
 
     if (pickedImage != null) {
-      final imageBytes = await pickedImage.readAsBytes();
       setState(() {
-        _selectedImage = imageBytes;
+        _selectedImage = File(pickedImage.path);
       });
     }
   }
@@ -264,5 +281,35 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _ageController.dispose();
     _regionController.dispose();
     super.dispose();
+  }
+
+  void _updateUserData() async {
+    print('Updating user data...');
+    try {
+      QuerySnapshot userData = await FirebaseFirestore.instance
+          .collection('users')
+          .where('email', isEqualTo: widget.email)
+          .limit(1)
+          .get();
+      if (userData.docs.isNotEmpty) {
+        String userId = userData.docs.first.id;
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(userId)
+            .update({
+          'username': _usernameController.text,
+          'bio': _bioController.text,
+          'pronouns': _pronounsController.text,
+          'age': _ageController.text,
+          'region': _regionController.text,
+          'profileImage': _selectedImage != null ? _selectedImage!.path : null,
+        });
+        print('User data updated successfully');
+      } else {
+        print('User data not found in Firestore');
+      }
+    } catch (e) {
+      print('Error updating user data: $e');
+    }
   }
 }

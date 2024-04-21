@@ -270,7 +270,7 @@ class _reviewmapState extends State<reviewmap> {
                         padding:
                             EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                         child: Image.asset(
-                          'assets/jennie.jpg', // Replace with actual image
+                          'assets/lisa.jpg', // Replace with actual image
                           width: 150, // ปรับขนาดตามที่ต้องการ
                           height: 150,
                           fit: BoxFit.cover,

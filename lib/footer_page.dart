@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+
 class FooterPage extends StatelessWidget {
   final int selectedIndex;
   final ValueChanged<int> onItemTapped;
@@ -35,10 +36,8 @@ class FooterPage extends StatelessWidget {
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: CircleAvatar(
-            backgroundImage: AssetImage('assets/jisoo.jpg'),
-            radius: 15,
-          ),
+          icon: Icon(Icons.sensor_occupied,
+              color: selectedIndex == 4 ? Colors.blue : Colors.black),
           label: '',
         ),
       ],

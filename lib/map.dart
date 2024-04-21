@@ -106,7 +106,7 @@ class _MapScreenState extends State<MapScreen> {
         content: CustomInfoWindow(
           title: 'ร้านอาหารที่ 1',
           snippet: 'เวลาทำการ จ. - ศ. 10:00 - 20:00',
-          imageUrl: 'assets/jisoo.jpg',
+          imageUrl: 'assets/img/foods/food.jpg',
         ),
       ),
     );

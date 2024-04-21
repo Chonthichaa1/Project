@@ -56,7 +56,7 @@ class _RestaurantRatingBottomSheetState
             color: Color.fromARGB(255, 132, 132, 132),
             width: double.infinity,
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 5),
           Text(
             'Give stars to the restaurant',
             style: TextStyle(
@@ -78,7 +78,7 @@ class _RestaurantRatingBottomSheetState
               ),
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 5),
           Row(
             children: [
               Text(
@@ -95,7 +95,7 @@ class _RestaurantRatingBottomSheetState
               ),
             ],
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 5),
           Container(
             width: 400,
             height: 100,
