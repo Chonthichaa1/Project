@@ -123,7 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     backgroundImage:
                         _selectedImage?.path != null 
                             ? FileImage(_selectedImage!)
-                            : AssetImage('assets/jennie.jpg') as ImageProvider,
+                            : AssetImage('assets/img/profile/jennie.jpg') as ImageProvider,
                     child: _selectedImage == null
                         ? Icon(
                             Icons.camera_alt,

@@ -21,7 +21,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
   late TextEditingController _ageController;
   late TextEditingController _regionController;
   late File? _selectedImage;
-  late User? _currentUser;
 
   @override
   void initState() {

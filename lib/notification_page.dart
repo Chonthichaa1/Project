@@ -116,7 +116,7 @@ class _NotificationPageState extends State<NotificationPage>
               ListTile(
                 leading: CircleAvatar(
                   // User profile image
-                  backgroundImage: AssetImage('assets/rose.jpg'),
+                  backgroundImage: AssetImage('assets/img/profile/rose.jpg'),
                 ),
                 title: Text('roses_are_rosie'),
                 subtitle: Text('Like your post. 10:08 PM'),
@@ -135,7 +135,7 @@ class _NotificationPageState extends State<NotificationPage>
               ListTile(
                 leading: CircleAvatar(
                   // User profile image
-                  backgroundImage: AssetImage('assets/lisa.jpg'),
+                  backgroundImage: AssetImage('assets/img/profile/lisa.jpg'),
                 ),
                 title: Text('lalalalisa_m'),
                 subtitle: Text('Started following you. 10:04 PM'),
@@ -159,7 +159,7 @@ class _NotificationPageState extends State<NotificationPage>
               ListTile(
                 leading: CircleAvatar(
                   // User profile image
-                  backgroundImage: AssetImage('assets/rose.jpg'),
+                  backgroundImage: AssetImage('assets/img/profile/rose.jpg'),
                 ),
                 title: Text('roses_are_rosie'),
                 subtitle: Text('Commented on your post: look Yummy! 9:54 PM'),
@@ -178,7 +178,7 @@ class _NotificationPageState extends State<NotificationPage>
               ListTile(
                 leading: CircleAvatar(
                   // User profile image
-                  backgroundImage: AssetImage('assets/jisoo.jpg'),
+                  backgroundImage: AssetImage('assets/img/profile/jisoo.jpg.jpg'),
                 ),
                 title: Text('sooyaa__'),
                 subtitle: Text('Started following you. 8:02 PM'),
@@ -202,7 +202,7 @@ class _NotificationPageState extends State<NotificationPage>
               ListTile(
                 leading: CircleAvatar(
                   // User profile image
-                  backgroundImage: AssetImage('assets/jisoo.jpg'),
+                  backgroundImage: AssetImage('assets/img/profile/jisoo.jpg.jpg'),
                 ),
                 title: Text('sooyaa__'),
                 subtitle: Text('Like your post. 8:00 PM'),

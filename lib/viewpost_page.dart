@@ -75,7 +75,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
       username: '_imyour_joy',
       comment: 'นี้ ฉันอยากกินฮันนี่โทสต์ ซื้อมาฝากหน่อยย~',
       timestamp: '2568-12-30',
-      profilePictureUrl: 'C:\Project-Mobile-App\assets\img\profile\Joy.jpg',
+      profilePictureUrl: 'assets/img/profile/Joy.jpg',
       likes: 2106,
     ),
     Comment(

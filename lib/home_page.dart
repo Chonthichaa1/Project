@@ -89,11 +89,10 @@ class MyHomePage extends StatelessWidget {
                     GoRouter.of(context).go('/MapScreen');
                   },
                   child: Container(
-                    width: 350, 
-                    height: 200, 
+                    width: 350,
+                    height: 200,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(
-                          20.0),
+                      borderRadius: BorderRadius.circular(20.0),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
@@ -104,19 +103,18 @@ class MyHomePage extends StatelessWidget {
                       ],
                     ),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(
-                          20.0),
+                      borderRadius: BorderRadius.circular(20.0),
                       child: Image.asset(
                         'assets/img/iconapp/map.png',
-                        fit: BoxFit
-                            .cover, 
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
                 ),
               ),
+              SizedBox(height: 10,),
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Text(
                   'Popular Now',
                   style: TextStyle(
@@ -126,64 +124,69 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
               Wrap(
-                spacing: 10.0,
                 runSpacing: 10.0,
                 children: [
                   BuilPosthomepage(
                     imagePath: 'assets/img/foods/Alienmochi.jpg',
-                    restaurantName: 'ขนมสุดฮิต Disneyland มีขายแล้ว ที่นครปฐม!',
+                    restaurantName: 'ขนมสุดฮิต Disneyland \nมีขายแล้ว ที่นครปฐม ต้องลอง!',
                     profileImageUrl: 'assets/img/profile/jennie.jpg',
                     username: 'jennierubyjane',
-                    likes: 100,
+                    likes: 40,
                   ),
-                  BuilPosthomepage(
-                    imagePath: 'assets/img/foods/pompom.jpg',
-                    restaurantName: '3 Street food ของงานเทศกาล sanrio ที่ต้องลอง!',
-                    profileImageUrl: 'assets/img/profile/Yeri.jpg',
-                    username: 'yerimiese',
-                    likes: 100,
+                  GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context).go('/viewpost');
+                    },
+                    child: BuilPosthomepage(
+                      imagePath: 'assets/img/foods/pompom.jpg',
+                      restaurantName:
+                          '3 Street food ของงานเทศกาล sanrio ที่ต้องลอง!',
+                      profileImageUrl: 'assets/img/profile/Yeri.jpg',
+                      username: 'yerimiese',
+                      likes: 38,
+                    ),
                   ),
                   BuilPosthomepage(
                     imagePath: 'assets/img/foods/haiteelao.jpg',
                     restaurantName: 'Haidilao เปิดสาขาใหม่ที่ซอยตั้งสิน',
                     profileImageUrl: 'assets/img/profile/eunwoo.jpg',
                     username: 'eunwo.o_c',
-                    likes: 100,
+                    likes: 10,
                   ),
                   BuilPosthomepage(
                     imagePath: 'assets/img/foods/beef.jpg',
                     restaurantName: 'ร้านปิ้งย่างเปิดใหม่ใกล้มหิดลศาลายา!',
                     profileImageUrl: 'assets/lisa.jpg',
                     username: 'lalalalisa_m',
-                    likes: 100,
+                    likes: 10,
                   ),
                   BuilPosthomepage(
                     imagePath: 'assets/img/foods/teenoi.jpg',
                     restaurantName: 'รีวิวตี๋น้อยสาขาใหม่ที่ซอยตั้งสิน!',
                     profileImageUrl: 'assets/img/profile/rose.jpg',
                     username: 'roses_are_rose',
-                    likes: 100,
+                    likes: 10,
                   ),
                   BuilPosthomepage(
                     imagePath: 'assets/img/foods/thaitea.jpg',
                     restaurantName: 'ตั้งสินศาลายา มีชาตรามือแล้ววว><',
                     profileImageUrl: 'assets/img/profile/kayoung.jpg',
                     username: 'm_kayoung',
-                    likes: 100,
+                    likes: 10,
                   ),
                   BuilPosthomepage(
                     imagePath: 'assets/img/foods/roti.jpg',
                     restaurantName: 'บอกต่อโรตีที่จริงใจ หน้ามหิดลประตู 4!',
                     profileImageUrl: 'assets/img/profile/jisoo.jpg',
                     username: 'sooyaaa__',
-                    likes: 100,
+                    likes: 10,
                   ),
                   BuilPosthomepage(
-                    imagePath: 'assets/img/foods/yum.jpg ',
+                    imagePath: 'assets/img/foods/yum.jpg',
                     restaurantName: 'ร้านยำรสเด็ด ใกล้มหิดลประตู 3!',
-                    profileImageUrl: 'assets/img/profile/Joy.jpg',
-                    username: '_imyour_joy',
-                    likes: 100,
+                    profileImageUrl: 'assets/img/profile/jisoo.jpg',
+                    username: 'sooyaaa__',
+                    likes: 10,
                   ),
                 ],
               ),
@@ -211,8 +214,8 @@ Widget BuilPosthomepage({
   return Padding(
     padding: const EdgeInsets.only(left: 20.0),
     child: Container(
-      width: 180,
-      height: 300,
+      width: 190,
+      height: 340,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -223,12 +226,12 @@ Widget BuilPosthomepage({
               image: DecorationImage(
                 image: AssetImage(
                   imagePath,
-                ), 
+                ),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          SizedBox(height: 10), 
+          SizedBox(height: 10),
           Text(
             restaurantName,
             style: TextStyle(
@@ -247,7 +250,7 @@ Widget BuilPosthomepage({
                     radius: 15,
                     backgroundImage: AssetImage(
                       profileImageUrl,
-                    ), 
+                    ),
                   ),
                   SizedBox(
                     width: 5,
@@ -271,9 +274,9 @@ Widget BuilPosthomepage({
                   ),
                   SizedBox(
                     width: 5,
-                  ), 
+                  ),
                   Text(
-                    likes.toString(),
+                    "${likes.toString()}k",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
