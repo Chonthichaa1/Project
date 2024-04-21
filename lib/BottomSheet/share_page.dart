@@ -37,7 +37,7 @@ class SharePage extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Image.asset('assets/line.png'),
+                      child: Image.asset('assets/img/iconapp/line.png'),
                     ),
                     SizedBox(height: 6),
                     Text(
@@ -56,7 +56,7 @@ class SharePage extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Image.asset('assets/messenger.jpg'),
+                      child: Image.asset('assets/img/iconapp/messenger.jpg'),
                     ),
                     SizedBox(height: 6),
                     Text(
@@ -75,7 +75,7 @@ class SharePage extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Image.asset('assets/Instagram.png'),
+                      child: Image.asset('assets/img/iconapp/Instagram.png'),
                     ),
                     SizedBox(height: 6),
                     Text(
@@ -94,7 +94,7 @@ class SharePage extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Image.asset('assets/copylink.jpg'),
+                      child: Image.asset('assets/img/iconapp/copylink.jpg'),
                     ),
                     SizedBox(height: 6),
                     Text(

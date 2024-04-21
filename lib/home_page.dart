@@ -89,28 +89,27 @@ class MyHomePage extends StatelessWidget {
                     GoRouter.of(context).go('/MapScreen');
                   },
                   child: Container(
-                    width: 350, // กำหนดความกว้างเท่ากับขนาดของหน้าจอ
-                    height: 200, // กำหนดความสูงเป็น 300 pixels
+                    width: 350, 
+                    height: 200, 
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(
-                          20.0), // กำหนดเป็นความโค้งรอบกรอบ
+                          20.0),
                       boxShadow: [
-                        // เพิ่มเงาให้กับกรอบ
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
                           spreadRadius: 5,
                           blurRadius: 7,
-                          offset: Offset(0, 3), // กำหนดทิศทางของเงา
+                          offset: Offset(0, 3),
                         ),
                       ],
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(
-                          20.0), // กำหนดเป็นความโค้งรอบ Container ด้วย ClipRRect
+                          20.0),
                       child: Image.asset(
-                        'assets/map.png',
+                        'assets/img/iconapp/map.png',
                         fit: BoxFit
-                            .cover, // ให้รูปภาพเต็มขนาดและปรับตามขนาดของ Container
+                            .cover, 
                       ),
                     ),
                   ),
@@ -210,7 +209,7 @@ Widget BuilPosthomepage({
   required int likes,
 }) {
   return Padding(
-    padding: const EdgeInsets.only(left: 20.0), // ระยะห่างด้านซ้าย
+    padding: const EdgeInsets.only(left: 20.0),
     child: Container(
       width: 180,
       height: 300,
@@ -219,17 +218,17 @@ Widget BuilPosthomepage({
         children: [
           Container(
             width: double.infinity,
-            height: 200, // ความสูงของรูปภาพ
+            height: 200,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
                   imagePath,
-                ), // รูปภาพของร้านอาหาร
+                ), 
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          SizedBox(height: 10), // ระยะห่างระหว่างรูปภาพกับ Text
+          SizedBox(height: 10), 
           Text(
             restaurantName,
             style: TextStyle(
@@ -248,7 +247,7 @@ Widget BuilPosthomepage({
                     radius: 15,
                     backgroundImage: AssetImage(
                       profileImageUrl,
-                    ), // รูปโปรไฟล์
+                    ), 
                   ),
                   SizedBox(
                     width: 5,
@@ -272,9 +271,9 @@ Widget BuilPosthomepage({
                   ),
                   SizedBox(
                     width: 5,
-                  ), // ระยะห่างระหว่าง Icon และจำนวนคนกดหัวใจ
+                  ), 
                   Text(
-                    likes.toString(), // จำนวนคนกดหัวใจ
+                    likes.toString(),
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

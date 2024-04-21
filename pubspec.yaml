@@ -77,7 +77,6 @@ flutter:
     - assets/img/profile/eunwoo.jpg
     - assets/img/profile/kayoung.jpg
     #logo
-<<<<<<< HEAD
     - assets/img/iconapp/messenger.jpg
     - assets/img/iconapp/line.png
     - assets/img/iconapp/copylink.jpg
@@ -86,15 +85,30 @@ flutter:
     #food
     - assets/img/foods/Alienmochi.jpg
     - assets/img/foods/food.jpg
-=======
-    - assets/messenger.jpg
-    - assets/line.png
-    - assets/copylink.jpg
-    - assets/Instagram.png
-    - assets/fav.png
-    #map
-    - assets/map.png
->>>>>>> main
+    
+    - assets/img/foods/bingsu.jpg
+    - assets/img/foods/beef.jpg
+    - assets/img/foods/bread.png
+    - assets/img/foods/coffee.jpg
+    - assets/img/foods/dangngo.png
+    - assets/img/foods/haiteelao.png
+    - assets/img/foods/honeytoast.jpg
+    - assets/img/foods/icecreammelody.jpg
+    - assets/img/foods/kittycupcake.png
+    - assets/img/foods/Kittydonut.jpg
+    - assets/img/foods/kittyhoneytoast.png
+    - assets/img/foods/Mochigrillelao.
+    - assets/img/foods/pompom.jpg
+    - assets/img/foods/roll.jpg
+    - assets/img/foods/roti.jpg
+    - assets/img/foods/salapao.png
+    - assets/img/foods/shushi.jpg
+    - assets/img/foods/teenoi.png
+    - assets/img/foods/thaitea.png
+    - assets/img/foods/thanghoolu.jpg
+    - assets/img/foods/yum.jpg
+    - assets/img/foods/Review1.png
+    - assets/img/foods/Review2.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
