@@ -85,36 +85,33 @@ flutter:
     #food
     - assets/img/foods/Alienmochi.jpg
     - assets/img/foods/food.jpg
-<<<<<<< HEAD
     
     - assets/img/foods/bingsu.jpg
     - assets/img/foods/beef.jpg
-    - assets/img/foods/bread.png
+    - assets/img/foods/bread.jpg
     - assets/img/foods/coffee.jpg
-    - assets/img/foods/dangngo.png
-    - assets/img/foods/haiteelao.png
+    - assets/img/foods/dangngo.jpg
+    - assets/img/foods/haiteelao.jpg
     - assets/img/foods/honeytoast.jpg
     - assets/img/foods/icecreammelody.jpg
-    - assets/img/foods/kittycupcake.png
+    - assets/img/foods/kittycupcake.jpg
     - assets/img/foods/Kittydonut.jpg
-    - assets/img/foods/kittyhoneytoast.png
-    - assets/img/foods/Mochigrillelao.
+    - assets/img/foods/kittyhoneytoast.jpg
+    - assets/img/foods/Mochigrill.jpg
     - assets/img/foods/pompom.jpg
     - assets/img/foods/roll.jpg
     - assets/img/foods/roti.jpg
-    - assets/img/foods/salapao.png
+    - assets/img/foods/salapao.jpg
     - assets/img/foods/shushi.jpg
-    - assets/img/foods/teenoi.png
-    - assets/img/foods/thaitea.png
+    - assets/img/foods/teenoi.jpg
+    - assets/img/foods/thaitea.jpg
     - assets/img/foods/thanghoolu.jpg
     - assets/img/foods/yum.jpg
-    - assets/img/foods/Review1.png
+    - assets/img/foods/Review1.jpg
     - assets/img/foods/Review2.jpg
-=======
     - assets/img/foods/food2.jpg
     - assets/img/foods/food3.jpg
     - assets/img/foods/food4.jpg
->>>>>>> main
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

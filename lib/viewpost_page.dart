@@ -105,7 +105,6 @@ class _ViewPostPageState extends State<ViewPostPage> {
       likes: 5600,
       profilePictureUrl: 'assets/img/profile/kayoung.jpg',
     ),
-   
   ];
 
   @override
@@ -190,9 +189,9 @@ class _ViewPostPageState extends State<ViewPostPage> {
                                   scrollDirection: Axis.horizontal,
                                   onPageChanged: _pageChanged,
                                   children: [
-                                    _buildImage('assets/img/foods/food3.jpg'),
-                                    _buildImage('assets/img/foods/food4.jpg'),
-                                    _buildImage('assets/img/foods/food2.jpg'),
+                                    _buildImage('assets/img/foods/pompom.jpg'),
+                                    _buildImage('assets/img/foods/bingsu.jpg'),
+                                    _buildImage('assets/img/foods/kittyhoneytoast.jpg'),
                                   ],
                                 ),
                               ],

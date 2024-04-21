@@ -104,7 +104,7 @@ class _MapScreenState extends State<MapScreen> {
       context: context,
       builder: (context) => AlertDialog(
         content: CustomInfoWindow(
-          title: 'ร้านอาหารที่ 1',
+          title: 'ICI YumKeng',
           snippet: 'เวลาทำการ จ. - ศ. 10:00 - 20:00',
           imageUrl: 'assets/img/foods/food.jpg',
         ),
