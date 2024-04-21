@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import "package:go_router/go_router.dart";
+import 'package:go_router/go_router.dart';
+import 'footer_page.dart'; // นำเข้าไลบรารี footer_page.dart
+
 class SearchEngineApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -75,6 +77,10 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: FooterPage( // ให้ FooterPage อยู่ใน Scaffold
+        selectedIndex: 1,
+        onItemTapped: (index) {},
       ),
     );
   }

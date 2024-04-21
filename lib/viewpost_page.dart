@@ -8,7 +8,7 @@ class Comment {
   final String timestamp;
   final bool isReply;
   final String replyTo;
-  final String profilePictureUrl; 
+  final String profilePictureUrl;
   int likes;
 
   Comment({
@@ -34,8 +34,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
       username: 'User1',
       comment: 'This is a topic comment.',
       timestamp: '2568-12-30',
-      profilePictureUrl:
-          'assets/rose.jpg',
+      profilePictureUrl: 'assets/rose.jpg',
       likes: 200,
     ),
     Comment(
@@ -45,8 +44,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
       isReply: true,
       replyTo: 'User1',
       likes: 1000,
-      profilePictureUrl:
-          'assets/jennie.jpg',
+      profilePictureUrl: 'assets/jennie.jpg',
     ),
     // Add more comments here
   ];
@@ -73,306 +71,464 @@ class _ViewPostPageState extends State<ViewPostPage> {
             ),
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: 20.0),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-                height: 60.0,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 30.0,
-                          backgroundImage: AssetImage('assets/yeri.jpg'),
-                        ),
-                        SizedBox(width: 10.0),
-                        Text(
-                          "yerimiese",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Follow",
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        backgroundColor: Colors.blue,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 20.0),
-              Container(
-                width: 400.0, // กำหนดความกว้างของ Container
-                height: 350.0, // กำหนดความสูงของ Container
+        body: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Expanded(
-                      child: Stack(
-                        alignment: Alignment.center,
+                    SizedBox(height: 20.0),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20.0),
+                      height: 60.0,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          PageView(
-                            scrollDirection: Axis.horizontal,
-                            onPageChanged: _pageChanged,
+                          Row(
                             children: [
-                              _buildImage('assets/pom pom post.jpg'),
-                              _buildImage('assets/Bingsu.jpg'),
-                              _buildImage('assets/kitty cupcake.jpg'),
-                              _buildImage('assets/kitty honeytoast.jpg'),
+                              CircleAvatar(
+                                radius: 30.0,
+                                backgroundImage: AssetImage('assets/yeri.jpg'),
+                              ),
+                              SizedBox(width: 10.0),
+                              Text(
+                                "yerimiese",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ],
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Follow",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 16),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                              backgroundColor: Colors.blue,
+                            ),
                           ),
                         ],
                       ),
                     ),
                     SizedBox(height: 20.0),
                     Container(
-                      height: 20.0,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      width: 400.0, // กำหนดความกว้างของ Container
+                      height: 350.0, // กำหนดความสูงของ Container
+                      child: Column(
                         children: [
-                          for (int i = 0; i < 4; i++)
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 5.0),
-                              width: 10.0,
-                              height: 10.0,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: i == _currentPage
-                                    ? Colors.black
-                                    : Colors.grey,
-                              ),
+                          Expanded(
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                PageView(
+                                  scrollDirection: Axis.horizontal,
+                                  onPageChanged: _pageChanged,
+                                  children: [
+                                    _buildImage('assets/pom pom post.jpg'),
+                                    _buildImage('assets/Bingsu.jpg'),
+                                    _buildImage('assets/kitty cupcake.jpg'),
+                                    _buildImage('assets/kitty honeytoast.jpg'),
+                                  ],
+                                ),
+                              ],
                             ),
+                          ),
+                          SizedBox(height: 20.0),
+                          Container(
+                            height: 20.0,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                for (int i = 0; i < 4; i++)
+                                  Container(
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 5.0),
+                                    width: 10.0,
+                                    height: 10.0,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: i == _currentPage
+                                          ? Colors.black
+                                          : Colors.grey,
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 20.0),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Post Title",
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10.0),
-                    Text(
-                      "Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac lorem nec turpis blandit interdum.",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    SizedBox(height: 10.0),
-                    Text(
-                      "#Mahidol",
-                      style: TextStyle(fontSize: 15.0, color: Colors.green),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 10.0),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0),
-                        child: Container(
-                          width: 160.0,
-                          height: 30.0,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8.0),
-                            border: Border.all(
-                              color: Colors.grey,
-                              width: 0.5,
+                    SizedBox(height: 20.0),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Post Title",
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 5.0), // ระยะห่างซ้าย 15.0
-                                child: Container(
-                                  width: 20.0,
-                                  height: 20.0,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.green,
-                                  ),
-                                  child: Icon(
-                                    Icons.search,
-                                    color: Colors.white,
-                                    size: 15,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(width: 10.0),
-                              Text(
-                                "FoodThailand",
-                                style: TextStyle(
-                                  fontSize: 15.0,
-                                  color: Colors.green,
-                                ),
-                              ),
-                              Icon(Icons.chevron_right),
-                            ],
+                          SizedBox(height: 10.0),
+                          Text(
+                            "Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac lorem nec turpis blandit interdum.",
+                            style: TextStyle(
+                              fontSize: 16.0,
+                            ),
                           ),
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(height: 15),
-                  Container(
-                    child: Column(
+                          SizedBox(height: 10.0),
+                          Text(
+                            "#Mahidol",
+                            style:
+                                TextStyle(fontSize: 15.0, color: Colors.green),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 15.0),
+                              child: Container(
+                                width: 160.0,
+                                height: 30.0,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  border: Border.all(
+                                    color: Colors.grey,
+                                    width: 0.5,
+                                  ),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 5.0), // ระยะห่างซ้าย 15.0
+                                      child: Container(
+                                        width: 20.0,
+                                        height: 20.0,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.green,
+                                        ),
+                                        child: Icon(
+                                          Icons.search,
+                                          color: Colors.white,
+                                          size: 15,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(width: 10.0),
+                                    Text(
+                                      "FoodThailand",
+                                      style: TextStyle(
+                                        fontSize: 15.0,
+                                        color: Colors.green,
+                                      ),
+                                    ),
+                                    Icon(Icons.chevron_right),
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(height: 15),
                         Container(
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom:
-                                  BorderSide(color: Colors.grey, width: 0.5),
-                            ),
-                          ),
-                          padding: EdgeInsets.symmetric(horizontal: 15.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "9 comments",
-                                style: TextStyle(
-                                    fontSize: 16.0, color: Colors.black),
+                              Container(
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.grey, width: 0.5),
+                                  ),
+                                ),
+                                padding: EdgeInsets.symmetric(horizontal: 15.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "9 comments",
+                                      style: TextStyle(
+                                          fontSize: 16.0, color: Colors.black),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Comments
+                              ListView.builder(
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemCount: comments.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return Padding(
+                                    padding: EdgeInsets.fromLTRB(
+                                      comments[index].isReply ? 60.0 : 15.0,
+                                      8.0,
+                                      15.0,
+                                      8.0,
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            CircleAvatar(
+                                              radius: 30,
+                                              backgroundImage: NetworkImage(
+                                                  comments[index]
+                                                      .profilePictureUrl),
+                                            ),
+                                            SizedBox(width: 10),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      comments[index].username,
+                                                      style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                    SizedBox(height: 4),
+                                                    Text(
+                                                      comments[index].comment,
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    SizedBox(height: 4.0),
+                                                    Row(
+                                                      children: [
+                                                        Text(
+                                                          comments[index]
+                                                              .timestamp,
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.grey),
+                                                        ),
+                                                        SizedBox(width: 8.0),
+                                                        Text(
+                                                          "Reply",
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                            Spacer(),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Column(
+                                                  children: [
+                                                    IconButton(
+                                                      onPressed: () {
+                                                        // Handle like button pressed
+                                                      },
+                                                      icon: Icon(Icons
+                                                          .favorite_border),
+                                                    ),
+                                                    Text(
+                                                      comments[index]
+                                                          .likes
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 12.0),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
                               ),
                             ],
                           ),
-                        ),
-                        // Comments
-                        ListView.builder(
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          itemCount: comments.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Padding(
-                              padding: EdgeInsets.fromLTRB(
-                                comments[index].isReply ? 60.0 : 15.0,
-                                8.0,
-                                15.0,
-                                8.0,
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      CircleAvatar(
-                                        radius: 30,
-                                        backgroundImage: NetworkImage(
-                                            comments[index].profilePictureUrl),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                comments[index].username,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                              SizedBox(height: 4),
-                                              Text(
-                                                comments[index].comment,
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              SizedBox(height: 4.0),
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    comments[index].timestamp,
-                                                    style: TextStyle(
-                                                        color: Colors.grey),
-                                                  ),
-                                                  SizedBox(width: 8.0),
-                                                  Text(
-                                                    "Reply",
-                                                    style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      Spacer(),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          Column(
-                                            children: [
-                                              IconButton(
-                                                onPressed: () {
-                                                  // Handle like button pressed
-                                                },
-                                                icon:
-                                                    Icon(Icons.favorite_border),
-                                              ),
-                                              Text(
-                                                comments[index]
-                                                    .likes
-                                                    .toString(),
-                                                style:
-                                                    TextStyle(fontSize: 12.0),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
                         ),
                       ],
                     ),
+                  ],
+                ),
+              ),
+            ),
+            // Footer
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, -3),
                   ),
                 ],
               ),
-            ],
-          ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                child: Column(
+                  children: [
+                    // Comment input field
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 8.0),
+                      decoration: BoxDecoration(
+                        color: Color(0xFFD6D6D6), // กำหนดพื้นหลังเป็นสีเทาอ่อน
+                        borderRadius:
+                            BorderRadius.circular(15.0), // กำหนดความโค้งของกรอบ
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Add a comment...',
+                                border: InputBorder.none,
+                                contentPadding:
+                                    EdgeInsets.symmetric(horizontal: 16.0),
+                              ),
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize
+                                .min, // กำหนดให้ Row มีขนาดเท่าที่จำเป็น
+                            children: [
+                              // Emojis
+                              IconButton(
+                                onPressed: () {
+                                  // Handle emoji button pressed
+                                },
+                                icon: Icon(Icons.star_outlined,
+                                    size: 24.0, color: Colors.yellow),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  // Handle emoji button pressed
+                                },
+                                icon: Icon(Icons.favorite_outlined,
+                                    size: 24.0, color: Colors.red),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  // Handle emoji button pressed
+                                },
+                                icon: Icon(Icons.question_mark_outlined,
+                                    size: 24.0, color: Colors.black),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Icons row
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // Bookmarks Icon and Count
+                        Row(
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                // Handle bookmark button pressed
+                              },
+                              icon: Icon(Icons.bookmark_outline),
+                            ),
+                            Text(
+                              "123 saved", // Replace with actual bookmark count
+                            ),
+                          ],
+                        ),
+                        Expanded(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              // Like Icon and Count
+                              Row(
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      // Handle like button pressed
+                                    },
+                                    icon: Icon(Icons.favorite_outline),
+                                  ),
+                                  Text(
+                                    "1515", // Replace with actual like count
+                                  ),
+                                ],
+                              ),
+                              // Comments Icon and Count
+                              Row(
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      // Scroll to comments section or focus on comment input
+                                    },
+                                    icon: Icon(Icons.chat_bubble_outline),
+                                  ),
+                                  Text(
+                                    "2", // Replace with actual comment count
+                                  ),
+                                ],
+                              ),
+                              // Share Icon
+                              Row(
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      // Scroll to comments section or focus on comment input
+                                    },
+                                    icon: Icon(Icons.send_outlined),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
