@@ -72,12 +72,11 @@ flutter:
     - assets/img/profile/jennie.jpg
     - assets/img/profile/rose.jpg
     - assets/img/profile/lisa.jpg
-    - assets/img/profile/joy.jpg
+    - assets/img/profile/Joy.jpg
     - assets/img/profile/Yeri.jpg
     - assets/img/profile/eunwoo.jpg
     - assets/img/profile/kayoung.jpg
     #logo
-<<<<<<< HEAD
     - assets/img/iconapp/messenger.jpg
     - assets/img/iconapp/line.png
     - assets/img/iconapp/copylink.jpg
@@ -86,15 +85,9 @@ flutter:
     #food
     - assets/img/foods/Alienmochi.jpg
     - assets/img/foods/food.jpg
-=======
-    - assets/messenger.jpg
-    - assets/line.png
-    - assets/copylink.jpg
-    - assets/Instagram.png
-    - assets/fav.png
-    #map
-    - assets/map.png
->>>>>>> main
+    - assets/img/foods/food2.jpg
+    - assets/img/foods/food3.jpg
+    - assets/img/foods/food4.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

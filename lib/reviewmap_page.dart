@@ -127,14 +127,14 @@ class _reviewmapState extends State<reviewmap> {
                                 border: InputBorder.none,
                                 filled: false,
                               ),
-                              hint: Text('จัดเรียงรายการโดย'),
+                              hint: Text('อยากเห็นโพสต์แบบไหนก่อน'),
                               isExpanded: true,
                               value: selectedOption,
                               items: <String>[
-                                'Option 1',
-                                'Option 2',
-                                'Option 3',
-                                'Option 4'
+                                'ล่าสุด',
+                                'ความคิดเห็นทั้งหมด',
+                                'คะแนนจากมากไปน้อย',
+                                'คะแนนจากน้อยไปมาก'
                               ].map((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -192,7 +192,7 @@ class _reviewmapState extends State<reviewmap> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Username',
+                              'eunwo.o_c',
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
@@ -257,7 +257,7 @@ class _reviewmapState extends State<reviewmap> {
                         padding:
                             EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                         child: Text(
-                          'ร้านอาหารนี้เป็นหนึ่งในที่สุดที่ผมเคยไป บรรยากาศดีมาก อาหารอร่อยมาก และบริการดีเยี่ยม ไม่แปลกใจเลยที่ได้รับคะแนน 4 ดาว! ผมขอแนะนำให้ลองเยี่ยมชม',
+                          'ร้านอาหารนี้เป็นหนึ่งในที่สุดที่ผมเคยไป บรรยากาศดีมาก อาหารอร่อยมาก และบริการดีเยี่ยม เอาไปเลย 4 ดาว!',
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
                           style: TextStyle(
@@ -270,7 +270,7 @@ class _reviewmapState extends State<reviewmap> {
                         padding:
                             EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                         child: Image.asset(
-                          'assets/lisa.jpg', // Replace with actual image
+                          'assets/img/foods/Alienmochi.jpg', // Replace with actual image
                           width: 150, // ปรับขนาดตามที่ต้องการ
                           height: 150,
                           fit: BoxFit.cover,
