@@ -31,22 +31,81 @@ class _ViewPostPageState extends State<ViewPostPage> {
   int _currentPage = 0;
   List<Comment> comments = [
     Comment(
-      username: 'User1',
-      comment: 'This is a topic comment.',
+      username: 'roses_are_rosie',
+      comment: 'น่ากินมาก ต้องลองแล้ว!',
       timestamp: '2568-12-30',
-      profilePictureUrl: 'assets/rose.jpg',
-      likes: 200,
+      profilePictureUrl: 'assets/img/profile/rose.jpg',
+      likes: 2000,
     ),
     Comment(
-      username: 'User2',
-      comment: 'Replying to topic comment.',
-      timestamp: '2568-12-31',
+      username: 'yerimiese',
+      comment: 'ที่สุดดดดดด',
+      timestamp: '2568-12-30',
       isReply: true,
-      replyTo: 'User1',
-      likes: 1000,
-      profilePictureUrl: 'assets/jennie.jpg',
+      replyTo: 'roses_are_rosie',
+      likes: 2370,
+      profilePictureUrl: 'assets/img/profile/Yeri.jpg',
     ),
-    // Add more comments here
+    Comment(
+      username: 'roses_are_rosie',
+      comment: 'ลุยยยยย',
+      timestamp: '2568-12-30',
+      isReply: true,
+      replyTo: 'roses_are_rosie',
+      likes: 1122,
+      profilePictureUrl: 'assets/img/profile/rose.jpg',
+    ),
+    Comment(
+      username: 'lalalalisa_m',
+      comment: 'อยากไปกินเจ้าคิตตี้~',
+      timestamp: '2568-12-30',
+      profilePictureUrl: 'assets/img/profile/lisa.jpg',
+      likes: 9100,
+    ),
+    Comment(
+      username: 'yerimiese',
+      comment: 'น้องน่ารักมากก ><',
+      timestamp: '2568-12-30',
+      isReply: true,
+      replyTo: 'lalalalisa_m',
+      likes: 3305,
+      profilePictureUrl: 'assets/img/profile/Yeri.jpg',
+    ),
+    Comment(
+      username: '_imyour_joy',
+      comment: 'นี้ ฉันอยากกินฮันนี่โทสต์ ซื้อมาฝากหน่อยย~',
+      timestamp: '2568-12-30',
+      profilePictureUrl: 'C:\Project-Mobile-App\assets\img\profile\Joy.jpg',
+      likes: 2106,
+    ),
+    Comment(
+      username: 'yerimiese',
+      comment: 'เอาเงินมาสิ เดี๋ยวของไปเลย',
+      timestamp: '2568-12-30',
+      isReply: true,
+      replyTo: '_imyour_joy',
+      likes: 8900,
+      profilePictureUrl: 'assets/img/profile/Yeri.jpg',
+    ),
+    Comment(
+      username: '_imyour_joy',
+      comment: 'พร้อมลุย เจ้าคิตตี้ของฉันน',
+      timestamp: '2568-12-30',
+      isReply: true,
+      replyTo: 'yerimiese',
+      likes: 4300,
+      profilePictureUrl: 'assets/img/profile/Joy.jpg',
+    ),
+    Comment(
+      username: 'm_kayoung',
+      comment: 'ฝากซื้อด้วยคนได้ม้ายยย~~',
+      timestamp: '2568-12-30',
+      isReply: true,
+      replyTo: 'yerimiese',
+      likes: 5600,
+      profilePictureUrl: 'assets/img/profile/kayoung.jpg',
+    ),
+   
   ];
 
   @override
@@ -88,7 +147,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
                             children: [
                               CircleAvatar(
                                 radius: 30.0,
-                                backgroundImage: AssetImage('assets/yeri.jpg'),
+                                backgroundImage: AssetImage('assets/img/profile/Yeri.jpg'),
                               ),
                               SizedBox(width: 10.0),
                               Text(
@@ -131,10 +190,9 @@ class _ViewPostPageState extends State<ViewPostPage> {
                                   scrollDirection: Axis.horizontal,
                                   onPageChanged: _pageChanged,
                                   children: [
-                                    _buildImage('assets/pom pom post.jpg'),
-                                    _buildImage('assets/Bingsu.jpg'),
-                                    _buildImage('assets/kitty cupcake.jpg'),
-                                    _buildImage('assets/kitty honeytoast.jpg'),
+                                    _buildImage('assets/img/foods/food3.jpg'),
+                                    _buildImage('assets/img/foods/food4.jpg'),
+                                    _buildImage('assets/img/foods/food2.jpg'),
                                   ],
                                 ),
                               ],
@@ -146,7 +204,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                for (int i = 0; i < 4; i++)
+                                for (int i = 0; i < 3; i++)
                                   Container(
                                     margin:
                                         EdgeInsets.symmetric(horizontal: 5.0),
@@ -172,7 +230,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Post Title",
+                            "3 Street food ของงานเทศกาล sanrio  ที่ต้องลอง!",
                             style: TextStyle(
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold,
@@ -180,7 +238,37 @@ class _ViewPostPageState extends State<ViewPostPage> {
                           ),
                           SizedBox(height: 10.0),
                           Text(
-                            "Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac lorem nec turpis blandit interdum.",
+                            "สวัสดีค่ะทุกคนน วันนี้เราจะมาบอกพิกัด street food ของงานเทศกาล sanrio ที่ต้องลองเมื่อถึงประเทศเกาหลีใต้กันค่ะ เราเลือกมา 3 อย่างด้วยกัน อยากรู้ว่ามีอะไรบ้าง ต้องลองไปดูกันเล้ยยย\n",
+                            style: TextStyle(
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          Text(
+                            "1.Pudding pompompuri เป็นพุดดิ้งรูปน้อง pompompuri ที่ทำมาจากไข่แล้วมีแครกเกอร์อยู่ใต้พุดดิ้ง จะมีความเค็มๆ เนยและมีความหวานจากตัวพุดดิ้งของหวานอันนี้เป็นที่ฮิตมากๆ เมื่อถึงฤดูหนาวจะหาทานได้ง่ายกว่าฤดูอื่น รสชาติ : มีความหวานจากตัวพุดดิ้งเนื้อนุ่มเด้งดึ๋ง ตัดกับแคกเกอร์ที่มีความเค็มจากเนย เป็นของหวานที่กินแล้วต้องซื้อมาซ้ำอีกกก เพราะมีรูปน้องปอมปอมที่น่ารักมากกกกก T^T ",
+                            style: TextStyle(
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          Text(
+                            "ราคา 1500-2000 ₩ \nพิกัด หน้าสถานีฮงอิค ทางออก 6 ",
+                            style: TextStyle(
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          Text(
+                            "2. บิงซูซินนามอน\n ต่อมาจะเป็นบิงซูรูปน้องซินนามอนความเกล็ดน้ำแข็งรสนมฮอกไกโดละมุนลิ้นมากก มีท็อปปิ้งให้เลือกเยอะมากที่สั่งมาจะเป็นราดนมข้นและชาเขียวนม และยังมีของกินที่สั่งมากเพิ่มเติมอีกคือ บิงซูชาเขียวที่ออนท็อปตุ๊กตาน่ารักกกแถมยังมีโอติมรสข้าวเหนียวมะม่วงบ้านเราอีกด้วย! ที่ออนท็อปด้วยน้องปอมปอมปูริ \nรสชาติ : มีความหวานจากนํ้าเกล็ดแข็งนมสดรสฮอกไกโด และเพิ่มความหวานด้วย  การราดนมข้นและชาเขียวนมลงไป ฟินสุดๆ ต้องลองค่ะ! \nราคา 1900-3000 ₩  \nพิกัด หน้าสถานีองอิค กางออก 6 ",
+                            style: TextStyle(
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          Text(
+                            "3. ฮันนี่โทสต์ เฮลโลคิตตี้! \nของหวานที่เราทานบ่อยมากในหน้าหนาวช่วงนี้ 55555 ฮันนี่โทสต์ น้องคิตตี้ ขนมปังที่ออนท็อปวิปครีมรูปน้องคิตตี้ และมีเม็ดทับทิมกรอบ แถมยังราดน้ำผึ้งเพื่อเพิ่มความหวานอีกด้วยยย และมีก็อปปิ้งให้เลือกเยอะมาก แต่ที่เราเลือกมาจะมี แครกเกอร์และชาเขียวแก่งขนมหวานค่ะ  รสชาติ : หอมขนมปังมากกก ร้อนๆ จากเตา มีความหวานจากนํ้าผึ้งที่ราดและนมจากวิปครีมรูปคิตตี้ที่น่ารักสุดๆ ของโปรดที่ 1 ในใจเลยค่ะตอนนี้ ",
+                            style: TextStyle(
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          Text(
+                            "ราคา 3500-5000 ₩ \nพิกัด ร้าน Puppy House ตรงข้ามตลาดมังวอน",
                             style: TextStyle(
                               fontSize: 16.0,
                             ),
@@ -294,7 +382,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
                                           children: [
                                             CircleAvatar(
                                               radius: 30,
-                                              backgroundImage: NetworkImage(
+                                              backgroundImage: AssetImage(
                                                   comments[index]
                                                       .profilePictureUrl),
                                             ),
@@ -490,7 +578,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
                                     icon: Icon(Icons.favorite_outline),
                                   ),
                                   Text(
-                                    "1515", // Replace with actual like count
+                                    "38,803", // Replace with actual like count
                                   ),
                                 ],
                               ),
@@ -504,7 +592,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
                                     icon: Icon(Icons.chat_bubble_outline),
                                   ),
                                   Text(
-                                    "2", // Replace with actual comment count
+                                    "9", // Replace with actual comment count
                                   ),
                                 ],
                               ),
