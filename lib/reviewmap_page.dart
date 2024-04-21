@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rating_summary/rating_summary.dart';
 import 'package:intl/intl.dart';
-
+import 'package:login/BottomSheet/rate_page.dart';
 class reviewmap extends StatefulWidget {
   @override
   _reviewmapState createState() => _reviewmapState();
@@ -12,7 +12,12 @@ class _reviewmapState extends State<reviewmap> {
 
   final TextEditingController searchController = TextEditingController();
 
-  int _selectedIndex = 0;
+    void _showBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => RestaurantRatingBottomSheet(), // แสดง BottomSheet จาก share_page.dart
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,23 +44,28 @@ class _reviewmapState extends State<reviewmap> {
               height: 20,
             ),
             Center(
-              child: Container(
-                width: 140,
-                height: 35,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.thumbs_up_down,
-                      color: Colors.blue,
-                    ),
-                    SizedBox(width: 10),
-                    Text('Write a review'),
-                  ],
+              child: GestureDetector(
+                onTap: () {
+                  _showBottomSheet(context); // เรียกใช้ BottomSheet เมื่อปุ่มถูกแตะ
+                },
+                child: Container(
+                  width: 140,
+                  height: 35,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.thumbs_up_down,
+                        color: Colors.blue,
+                      ),
+                      SizedBox(width: 10),
+                      Text('Write a review'),
+                    ],
+                  ),
                 ),
               ),
             ),

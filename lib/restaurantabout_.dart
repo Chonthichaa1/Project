@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'reviewmap_page.dart';
 import 'footer_page.dart';
 import 'package:go_router/go_router.dart';
+import 'package:login/BottomSheet/share_page.dart';
 
 void main() {
   runApp(const TabBarinfo());
@@ -40,6 +41,13 @@ class _TabBarinfoStateState extends State<_TabBarinfoState>
     setState(() {});
   }
 
+  void _showBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => SharePage(), // แสดง BottomSheet จาก share_page.dart
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -53,7 +61,12 @@ class _TabBarinfoStateState extends State<_TabBarinfoState>
             },
           ),
           actions: [
-            Icon(Icons.ios_share),
+            IconButton(
+              icon: Icon(Icons.ios_share), // แก้ไขไอคอนเป็น ios_share
+              onPressed: () {
+                _showBottomSheet(context); // เรียกใช้ BottomSheet เมื่อไอคอน ios_share ถูกแตะ
+              },
+            ),
             Icon(Icons.more_horiz),
           ],
           bottom: TabBar(
