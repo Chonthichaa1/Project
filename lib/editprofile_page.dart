@@ -1,4 +1,6 @@
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'footer_page.dart';
 import 'package:go_router/go_router.dart';
 
@@ -64,6 +66,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
   late TextEditingController _pronounsController;
   late TextEditingController _ageController;
   late TextEditingController _regionController;
+  late Uint8List? _selectedImage = null;
+
 
   @override
   void initState() {
@@ -84,63 +88,69 @@ class _EditProfilePageState extends State<EditProfilePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 16),
-            CircleAvatar(
-              backgroundImage: AssetImage('assets/jennie.jpg'),
-              radius: 50,
-            ),
-            SizedBox(height: 16),
-            Text(
-              'Edit Photo',
-              style: TextStyle(
-                color: Colors.blue,
-                fontSize: 15,
+            GestureDetector(
+              child: CircleAvatar(
+                backgroundImage: _selectedImage != null
+                    ? Image.memory(_selectedImage!).image
+                    : AssetImage('assets/jennie.jpg'),
+                radius: 50,
               ),
             ),
-            SizedBox(height: 8), // ลดความสูงของ Container
+            SizedBox(height: 16),
+            InkWell(
+              onTap: _pickImage,
+              child: Text(
+                'Edit Photo',
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 15,
+                ),
+              ),
+            ),
+            SizedBox(height: 8),
             buildProfileItem('Username', _usernameController),
             buildProfileItem('Bio', _bioController),
             buildProfileItem('Pronouns', _pronounsController),
             buildProfileItem('Age', _ageController),
             buildProfileItem('Region', _regionController),
-            SizedBox(height: 20), // ลดความสูงของ Container
-
+            SizedBox(height: 20),
             Row(
-              mainAxisAlignment: MainAxisAlignment
-                  .spaceEvenly, // จัดวางปุ่มให้อยู่กึ่งกลางและมีระยะห่างเท่ากัน
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // ทำบันทึกข้อมูลที่นี่
+                    // Save data here
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue, // เปลี่ยนสีปุ่มเป็นสีเขียว
+                    backgroundColor: Colors.blue,
                     shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(10), // เพิ่มความโค้งให้กับปุ่ม
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     fixedSize: Size(95, 40),
                   ),
                   child: Text(
-                      'Save',
-                      style: TextStyle(
-                        color: Colors.white),),
+                    'Save',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // ทำการ Logout ที่นี่
+                    // Logout here
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red, // เปลี่ยนสีปุ่มเป็นสีแดง
+                    backgroundColor: Colors.red,
                     shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(10), // เพิ่มความโค้งให้กับปุ่ม
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     fixedSize: Size(95, 40),
                   ),
                   child: Text(
                     'Logout',
                     style: TextStyle(
-                        color: Colors.white), // เปลี่ยนสีตัวอักษรเป็นสีขาว
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],
@@ -157,26 +167,22 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   Widget buildProfileItem(String title, TextEditingController controller) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-          horizontal: 0.0, vertical: 0.0), // ลดความสูงของ Container
+      padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             decoration: BoxDecoration(
-              color: Colors.white, // เปลี่ยนสีพื้นหลังเป็นสีขาว
+              color: Colors.white,
               border: Border(
-                top: BorderSide(
-                    color: Colors.grey, width: 0.5), // เพิ่มเส้นด้านบน
+                top: BorderSide(color: Colors.grey, width: 0.5),
                 bottom: title == 'Region'
                     ? BorderSide(color: Colors.grey, width: 0.5)
-                    : BorderSide.none, // เพิ่มเส้นด้านล่าง หากเป็น Region
+                    : BorderSide.none,
               ),
             ),
-            width: MediaQuery.of(context)
-                .size
-                .width, // กำหนดความยาวของ Container เท่ากับความกว้างของหน้าจอ
+            width: MediaQuery.of(context).size.width,
             child: Row(
               children: [
                 Expanded(
@@ -238,6 +244,18 @@ class _EditProfilePageState extends State<EditProfilePage> {
     );
   }
 
+  Future<void> _pickImage() async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedImage != null) {
+      final imageBytes = await pickedImage.readAsBytes();
+      setState(() {
+        _selectedImage = imageBytes;
+      });
+    }
+  }
+
   @override
   void dispose() {
     _usernameController.dispose();
@@ -245,6 +263,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _pronounsController.dispose();
     _ageController.dispose();
     _regionController.dispose();
-    super.dispose();    
+    super.dispose();
   }
 }
